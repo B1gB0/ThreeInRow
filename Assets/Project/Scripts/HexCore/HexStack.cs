@@ -41,7 +41,7 @@ namespace Project.Scripts.HexCore
 
             Hex hex = Instantiate(CurrentHexPrefab, transform);
             // Визуальное смещение по Y для имитации стопки
-            hex.transform.localPosition = new Vector3(0f, _hexagons.Count * 0.2f, 0f);
+            hex.transform.localPosition = new Vector3(0f, _hexagons.Count * 0.15f + 0.15f, 0f);
             _hexagons.Add(hex);
         }
 

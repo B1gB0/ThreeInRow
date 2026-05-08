@@ -6,9 +6,9 @@ namespace Project.Scripts.HexCore
     public class HexGrid : MonoBehaviour
     {
         private const float OffsetY = 0.62f;
-        
-        private readonly Dictionary<Vector2Int, HexCell> _cells = new ();
-        
+
+        private readonly Dictionary<Vector2Int, HexCell> _cells = new();
+
         [Header("Настройки сетки")]
         [SerializeField] private int _gridRadius = 3; // Радиус сетки в гексах
 
@@ -30,7 +30,7 @@ namespace Project.Scripts.HexCore
         {
             return _cells.TryGetValue(coord, out HexCell cell) && cell.IsEmpty;
         }
-        
+
         public List<HexCell> GetEmptyCells()
         {
             List<HexCell> emptyCells = new List<HexCell>();
@@ -39,12 +39,10 @@ namespace Project.Scripts.HexCore
                 if (cell.IsEmpty)
                     emptyCells.Add(cell);
             }
+
             return emptyCells;
         }
 
-        /// <summary>
-        /// Генерирует гексагональную сетку. Координаты используются "осевые" (q, r).
-        /// </summary>
         private void GenerateGrid()
         {
             for (int q = -_gridRadius; q <= _gridRadius; q++)
@@ -63,14 +61,11 @@ namespace Project.Scripts.HexCore
             }
         }
 
-        /// <summary>
-        /// Преобразует аксиальные координаты (q, r) в мировые (Vector3).
-        /// </summary>
         private Vector3 AxialToWorld(int q, int r)
         {
-            float x = _cellSpacing * (Mathf.Sqrt(3f) * q + Mathf.Sqrt(3f) / 2f * r);
-            float y = _cellSpacing * (3f / 2f * r);
-            return new Vector3(x, OffsetY, y);
+            float x = _cellSpacing * (3f / 2f * q);
+            float z = _cellSpacing * (Mathf.Sqrt(3f) / 2f * q + Mathf.Sqrt(3f) * r);
+            return new Vector3(x, OffsetY, z);
         }
     }
 }

@@ -197,8 +197,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fd6c372bab24daea5d83e9051ce8b9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gridRadius: 1
-  _cellSpacing: 1.1
+  _gridRadius: 2
+  _cellSpacing: 1.02
   _hexCellPrefab: {fileID: -8749830001851705033, guid: 902bac9ea6328ec4fbedd3a24e284e64, type: 3}
 --- !u!1 &339971409
 GameObject:
@@ -286,7 +286,7 @@ Transform:
   m_GameObject: {fileID: 339971409}
   serializedVersion: 2
   m_LocalRotation: {x: 0.42261827, y: 0, z: 0, w: 0.9063079}
-  m_LocalPosition: {x: 0, y: 5.23, z: -6}
+  m_LocalPosition: {x: 0, y: 12, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
