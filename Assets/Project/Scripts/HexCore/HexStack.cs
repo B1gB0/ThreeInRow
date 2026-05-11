@@ -8,39 +8,105 @@ namespace Project.Scripts.HexCore
 {
     public class HexStack : MonoBehaviour
     {
-        private readonly List<Hex> _hexagons = new ();
-        
+        private readonly List<Hex> _hexagons = new();
+
+        [Header("Цвета / префабы гексов")]
         [SerializeField] private Hex[] _possibleColors;
+
+        [Header("Количество гексов")]
+        [SerializeField] private int _minHexagons = 1;
         [SerializeField] private int _maxHexagons = 10;
+        [SerializeField] private bool _isRandom = true;
+        [SerializeField] private int _noRandomCount; // используется, когда _isRandom == false
+
+        [Header("Два цвета")]
+        [SerializeField] private bool _isTwoColors;
+
+        [Header("Ссылки")]
         [SerializeField] private DragHandler _dragHandler;
-        
-        private Vector3 _originalPosition;
-        private HexCell _originalCell;
-        
+
+        // Текущий префаб для одиночного цвета (оставлен для обратной совместимости)
+        public Hex CurrentHexPrefab { get; private set; }
+
         public int Count => _hexagons.Count;
         public HexCell CurrentCell { get; set; }
-        public Hex CurrentHexPrefab { get; private set; } // Префаб одного шестиугольника в стопке
+        public Vector3 OriginalPosition { get; private set; }
         
+        private Coroutine _moveRoutine; 
+
         private void Start()
         {
-            CurrentHexPrefab = _possibleColors[Random.Range(0, _possibleColors.Length)];
-            int count = Random.Range(1, 4); // начальное количество в стопке от 1 до 3
-            for (int i = 0; i < count; i++)
-                AddHexagon();
+            OriginalPosition = transform.position;
+            
+            // Определяем количество гексов в стопке
+            int count = _isRandom
+                ? Random.Range(_minHexagons, _maxHexagons + 1) // включаем max
+                : Mathf.Clamp(_noRandomCount, _minHexagons, _maxHexagons);
+
+            if (_isTwoColors)
+            {
+                // Нужно минимум 2 разных префаба
+                if (_possibleColors.Length < 2)
+                {
+                    Debug.LogError("[HexStack] Для двухцветной стопки нужно хотя бы 2 префаба в possibleColors!");
+                    return;
+                }
+
+                // Выбираем два различных цвета случайным образом
+                List<Hex> shuffled = new List<Hex>(_possibleColors);
+                Shuffle(shuffled);
+                Hex firstColor = shuffled[0];
+                Hex secondColor = shuffled[1];
+
+                // Случайная точка разделения: хотя бы по одному гексу каждого цвета
+                int firstColorCount = Random.Range(4, count); // от 1 до count-1
+
+                // Заполняем сначала первым цветом, потом вторым
+                for (int i = 0; i < count; i++)
+                {
+                    Hex prefabToSpawn = (i < firstColorCount) ? firstColor : secondColor;
+                    AddHexagon(prefabToSpawn);
+                }
+            }
+            else
+            {
+                // Обычная одноцветная стопка
+                CurrentHexPrefab = _possibleColors[Random.Range(0, _possibleColors.Length)];
+                for (int i = 0; i < count; i++)
+                {
+                    AddHexagon();
+                }
+            }
         }
 
         public void GetServices(TutorialPointer tutorialPointer, ChainReactionOfHex chainReactionOfHex)
         {
-            _dragHandler.GetServices(tutorialPointer, chainReactionOfHex);
+            if (_dragHandler != null)
+                _dragHandler.GetServices(tutorialPointer, chainReactionOfHex);
         }
 
+        /// <summary>
+        /// Добавляет гекс поверх стопки, используя текущий основной префаб (CurrentHexPrefab).
+        /// </summary>
         public void AddHexagon()
+        {
+            if (CurrentHexPrefab == null)
+            {
+                Debug.LogWarning("[HexStack] CurrentHexPrefab не задан, добавление невозможно.");
+                return;
+            }
+            AddHexagon(CurrentHexPrefab);
+        }
+
+        /// <summary>
+        /// Добавляет гекс поверх стопки, используя указанный префаб.
+        /// </summary>
+        public void AddHexagon(Hex prefab)
         {
             if (_hexagons.Count >= _maxHexagons)
                 return;
 
-            Hex hex = Instantiate(CurrentHexPrefab, transform);
-            // Визуальное смещение по Y для имитации стопки
+            Hex hex = Instantiate(prefab, transform);
             hex.transform.localPosition = new Vector3(0f, _hexagons.Count * 0.15f + 0.15f, 0f);
             _hexagons.Add(hex);
         }
@@ -55,18 +121,40 @@ namespace Project.Scripts.HexCore
             Destroy(hex.gameObject);
         }
 
-        // Запоминаем исходную позицию перед началом перетаскивания
-        public void RememberOriginalPosition(HexCell cell)
+        public Coroutine MoveToPosition(Vector3 target, float duration, System.Action onComplete = null)
         {
-            _originalPosition = transform.position;
-            _originalCell = cell;
+            if (_moveRoutine != null)
+                StopCoroutine(_moveRoutine);
+            _moveRoutine = StartCoroutine(MoveRoutine(target, duration, onComplete));
+            return _moveRoutine;
         }
 
-        // Возврат на исходную позицию
-        public IEnumerator ReturnToOriginal()
+        // Вспомогательный метод для случайного перемешивания списка
+        private void Shuffle<T>(List<T> list)
         {
-            // ... анимация возврата
-            yield break;
+            for (int i = 0; i < list.Count; i++)
+            {
+                int randomIndex = Random.Range(i, list.Count);
+                (list[i], list[randomIndex]) = (list[randomIndex], list[i]);
+            }
         }
+
+        private IEnumerator MoveRoutine(Vector3 target, float duration, System.Action onComplete)
+        {
+            Vector3 start = transform.position;
+            float elapsed = 0f;
+            while (elapsed < duration)
+            {
+                elapsed += Time.deltaTime;
+                float t = Mathf.Clamp01(elapsed / duration);
+                // можно добавить кривую (AnimationCurve) для "easing"
+                transform.position = Vector3.Lerp(start, target, t);
+                yield return null;
+            }
+            transform.position = target;
+            onComplete?.Invoke();
+            _moveRoutine = null;
+        }
+        // ==============================
     }
 }

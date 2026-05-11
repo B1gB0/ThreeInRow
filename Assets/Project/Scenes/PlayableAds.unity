@@ -147,7 +147,7 @@ Transform:
   m_GameObject: {fileID: 129230962}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.768, y: 2, z: -3.75}
+  m_LocalPosition: {x: -2.5, y: 0, z: -5.52}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -166,7 +166,7 @@ GameObject:
   m_Layer: 0
   m_Name: HexGrid
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -211,6 +211,7 @@ GameObject:
   - component: {fileID: 339971412}
   - component: {fileID: 339971411}
   - component: {fileID: 339971410}
+  - component: {fileID: 339971413}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -285,13 +286,29 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 339971409}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.42261827, y: 0, z: 0, w: 0.9063079}
-  m_LocalPosition: {x: 0, y: 12, z: -5}
+  m_LocalRotation: {x: 0.5224985, y: 0, z: 0, w: 0.8526402}
+  m_LocalPosition: {x: 0, y: 12, z: -9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 63, y: 0, z: 0}
+--- !u!114 &339971413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339971409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c49b4cc203aa6414fae5c798d1d0e7d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EventMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_MaxRayIntersections: 0
 --- !u!1 &367073976
 GameObject:
   m_ObjectHideFlags: 0
@@ -643,7 +660,7 @@ Transform:
   m_GameObject: {fileID: 695505658}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.378, y: 2, z: -3.75}
+  m_LocalPosition: {x: 2.5, y: 0, z: -5.52}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -863,7 +880,7 @@ Transform:
   m_GameObject: {fileID: 1375597008}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.252, y: 2, z: -3.75}
+  m_LocalPosition: {x: 0, y: 0, z: -5.52}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1090,10 +1107,16 @@ MonoBehaviour:
   _hexGrid: {fileID: 214480431}
   _initialStacks:
   - {fileID: 6397226639237130487, guid: b9d4d64e9a3fbe540bd6c54d1b7c4734, type: 3}
+  - {fileID: 6397226639237130487, guid: 6918ec240ab3bb944a9d374f275f7f90, type: 3}
   - {fileID: 6397226639237130487, guid: b9d4d64e9a3fbe540bd6c54d1b7c4734, type: 3}
+  - {fileID: 6397226639237130487, guid: 6918ec240ab3bb944a9d374f275f7f90, type: 3}
   - {fileID: 6397226639237130487, guid: b9d4d64e9a3fbe540bd6c54d1b7c4734, type: 3}
-  - {fileID: 6397226639237130487, guid: b9d4d64e9a3fbe540bd6c54d1b7c4734, type: 3}
-  - {fileID: 6397226639237130487, guid: b9d4d64e9a3fbe540bd6c54d1b7c4734, type: 3}
+  - {fileID: 6397226639237130487, guid: 6918ec240ab3bb944a9d374f275f7f90, type: 3}
+  _dragHexStack: {fileID: 6397226639237130487, guid: 1efedb1132075df4cb341c78dec358f5, type: 3}
+  _dragHexStackPointSpawn:
+  - {fileID: 129230963}
+  - {fileID: 1375597009}
+  - {fileID: 695505659}
   _endGame: {fileID: 1725962891}
   _chainReactionOfHex: {fileID: 1725962892}
   _tutorialPointer: {fileID: 1613653151}

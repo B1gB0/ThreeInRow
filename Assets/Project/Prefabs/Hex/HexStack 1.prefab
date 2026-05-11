@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7366052301940716250}
   - component: {fileID: 6397226639237130487}
   m_Layer: 0
-  m_Name: HexStack
+  m_Name: HexStack 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54,5 +54,5 @@ MonoBehaviour:
   _maxHexagons: 10
   _isRandom: 1
   _noRandomCount: 10
-  _isTwoColors: 1
+  _isTwoColors: 0
   _dragHandler: {fileID: 0}

@@ -9,11 +9,13 @@ namespace Project.Scripts.Game
     {
         [SerializeField] private HexGrid _hexGrid;
         [SerializeField] private HexStack[] _initialStacks;
+        [SerializeField] private HexStack _dragHexStack;
+        [SerializeField] private Transform[] _dragHexStackPointSpawn;
         [SerializeField] private EndGame _endGame;
         [SerializeField] private ChainReactionOfHex _chainReactionOfHex;
         [SerializeField] private TutorialPointer _tutorialPointer;
 
-        private List<HexStack> _activeStacks = new ();
+        private List<HexStack> _activeStacks = new();
 
         private void Start()
         {
@@ -24,6 +26,12 @@ namespace Project.Scripts.Game
                 hexStack.GetServices(_tutorialPointer, _chainReactionOfHex);
                 PlaceStackRandomly(hexStack);
                 _activeStacks.Add(hexStack);
+            }
+
+            foreach (var spawnPoint in _dragHexStackPointSpawn)
+            {
+                HexStack hexStack = Instantiate(_dragHexStack, spawnPoint.position, Quaternion.identity);
+                hexStack.GetServices(_tutorialPointer, _chainReactionOfHex);
             }
         }
 

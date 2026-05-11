@@ -6,6 +6,10 @@ namespace Project.Scripts.HexCore
     public class HexCell : MonoBehaviour
     {
         private const float OffsetY = 0.62f;
+
+        [SerializeField] private Material _highlightMaterial;
+        [SerializeField] private Material _defaultMaterial;
+        [SerializeField] private MeshRenderer _meshRenderer;
         
         public Vector2Int Coordinates { get; private set; }
         public Vector3 WorldPosition { get; private set; }
@@ -42,6 +46,22 @@ namespace Project.Scripts.HexCore
                 Destroy(CurrentStack.gameObject);
                 CurrentStack = null;
                 IsEmpty = true;
+            }
+        }
+        
+        public void SetHighlight(bool state)
+        {
+            if (state)
+            {
+                // Сохраняем оригинальный материал и ставим подсветку
+                if (_meshRenderer != null && _highlightMaterial != null)
+                    _meshRenderer.material = _highlightMaterial;
+            }
+            else
+            {
+                // Возвращаем исходный материал
+                if (_meshRenderer != null && _defaultMaterial != null)
+                    _meshRenderer.material = _defaultMaterial;
             }
         }
         
