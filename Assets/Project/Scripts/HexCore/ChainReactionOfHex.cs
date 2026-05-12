@@ -6,7 +6,7 @@ namespace Project.Scripts.HexCore
 {
     public class ChainReactionOfHex : MonoBehaviour
     {
-        private const float SpeedIncrease = 0.3f; // 30% ускорения за шаг
+        private const float SpeedIncrease = 0.3f;
 
         private readonly Vector2Int[] _neighbourOffsets = new Vector2Int[]
         {
@@ -63,40 +63,32 @@ namespace Project.Scripts.HexCore
                 if (sameColorNeighbors.Count == 0)
                     yield break;
 
-                // === ЭТАП 1: Переносим все возможные гексы в каждого подходящего соседа ===
                 foreach (var neighbor in sameColorNeighbors)
                 {
-                    // Переносим по одному гексу, пока:
-                    // - стартовый стек не пуст,
-                    // - его верхний гекс совпадает по цвету с первоначальным topHex,
-                    // - сосед существует и не пуст.
+                    if(startCell.CurrentStack.GetTopHex()._hexColor == topHex._hexColor)
+                        _currentSpeedMultiplier += SpeedIncrease;
+                    
                     while (!startCell.IsEmpty &&
                            startCell.CurrentStack.GetTopHex() != null &&
                            startCell.CurrentStack.GetTopHex()._hexColor == topHex._hexColor &&
                            neighbor != null && !neighbor.IsEmpty)
                     {
                         yield return StartCoroutine(MoveOneHex(startCell, neighbor));
-                        _currentSpeedMultiplier += SpeedIncrease;
 
-                        // Если стартовый стек полностью опустел — цепная реакция завершена
                         if (startCell.IsEmpty)
                             yield break;
-
-                        // Если после переноса верхний цвет стартового стека сменился,
-                        // прекращаем переносы в этого соседа (и выйдем из foreach)
+                        
                         if (startCell.CurrentStack.GetTopHex()._hexColor != topHex._hexColor)
                             break;
                     }
-
-                    // Проверяем, нужно ли прервать обработку оставшихся соседей
+                    
                     if (startCell.IsEmpty)
                         yield break;
 
                     if (startCell.CurrentStack.GetTopHex()._hexColor != topHex._hexColor)
-                        break; // выходим из foreach, потому что цвет поменялся
+                        break;
                 }
-
-                // === ЭТАП 2: Теперь, когда все возможные переносы завершены, удаляем группы по 10 ===
+                
                 foreach (var neighbor in sameColorNeighbors)
                 {
                     if (neighbor == null || neighbor.IsEmpty) continue;
@@ -107,8 +99,6 @@ namespace Project.Scripts.HexCore
                         yield return StartCoroutine(DissolveTopTen(neighbor, topHex));
                     }
                 }
-
-                // Если стартовый стек не пуст, цикл продолжится с новым верхним цветом
             }
         }
 
@@ -166,8 +156,7 @@ namespace Project.Scripts.HexCore
             if (collider) collider.enabled = false;
 
             yield return new WaitForSeconds(0.2f / _currentSpeedMultiplier);
-
-            // Удаляем всю группу верхних гексов цвета sample, если их >=10
+            
             stack.TryRemoveTopColorGroup(sample);
 
             if (!cell.IsEmpty && collider) collider.enabled = true;

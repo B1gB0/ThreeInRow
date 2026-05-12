@@ -109,12 +109,6 @@ namespace Project.Scripts.HexCore
                 return;
             }
 
-            if (_hexagons.Count >= _maxHexagons)
-            {
-                Destroy(hexInstance.gameObject);
-                return;
-            }
-
             hexInstance.transform.SetParent(transform);
             hexInstance.transform.localPosition = new Vector3(0f, _hexagons.Count * 0.15f + 0.15f, 0f);
             _hexagons.Add(hexInstance);
