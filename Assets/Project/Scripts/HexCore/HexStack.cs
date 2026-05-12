@@ -120,6 +120,14 @@ namespace Project.Scripts.HexCore
             _hexagons.Remove(hex);
             Destroy(hex.gameObject);
         }
+        
+        public Hex RemoveTopHex()
+        {
+            if (_hexagons.Count == 0) return null;
+            Hex top = _hexagons[_hexagons.Count - 1];
+            _hexagons.RemoveAt(_hexagons.Count - 1);
+            return top;
+        }
 
         public Coroutine MoveToPosition(Vector3 target, float duration, System.Action onComplete = null)
         {

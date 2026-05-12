@@ -1185,6 +1185,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  _hexGrid: {fileID: 214480431}
+  _baseMoveDuration: 0.3
 --- !u!1 &1847737532
 GameObject:
   m_ObjectHideFlags: 0

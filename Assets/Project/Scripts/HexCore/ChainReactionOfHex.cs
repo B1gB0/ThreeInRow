@@ -6,8 +6,8 @@ namespace Project.Scripts.HexCore
 {
     public class ChainReactionOfHex : MonoBehaviour
     {
-        private const float SPEED_INCREASE = 0.3f; // 30%
-        
+        private const float Speed = 0.3f; // 30%
+
         private readonly Vector2Int[] _neighbourOffsets = new Vector2Int[]
         {
             new Vector2Int(1, 0), new Vector2Int(1, -1), new Vector2Int(0, -1),
@@ -15,6 +15,8 @@ namespace Project.Scripts.HexCore
         };
         
         [SerializeField] private AnimationCurve _moveCurve;
+        [SerializeField] private HexGrid _hexGrid;
+        [SerializeField] private float _baseMoveDuration = 0.3f;
         
         private float _currentSpeedMultiplier = 1f;
 
@@ -29,7 +31,7 @@ namespace Project.Scripts.HexCore
             List<HexCell> neighbors = GetSameColorNeighbors(startCell);
             foreach (var neighbor in neighbors)
             {
-                yield return StartCoroutine(MoveHexagonsTo(startCell, neighbor));
+                yield return StartCoroutine(MoveOneHex(startCell, neighbor));
             }
 
             // Удаление заполненных стопок
@@ -39,7 +41,7 @@ namespace Project.Scripts.HexCore
             }
 
             // Увеличиваем скорость для следующего шага
-            _currentSpeedMultiplier += SPEED_INCREASE;
+            _currentSpeedMultiplier += Speed;
 
             // Проверяем, не осталось ли ещё возможных перемещений
             // (рекурсивный вызов для соседей)
@@ -48,11 +50,11 @@ namespace Project.Scripts.HexCore
         private List<HexCell> GetSameColorNeighbors(HexCell cell)
         {
             List<HexCell> sameColor = new List<HexCell>();
-            HexGrid grid = GetComponent<HexGrid>(); // или ссылка через синглтон
+
             foreach (var offset in _neighbourOffsets)
             {
                 Vector2Int neighborCoord = cell.Coordinates + offset;
-                HexCell neighbor = grid.GetCell(neighborCoord);
+                HexCell neighbor = _hexGrid.GetCell(neighborCoord);
                 if (neighbor != null 
                     && !neighbor.IsEmpty && neighbor.CurrentStack.CurrentHexPrefab == cell.CurrentStack.CurrentHexPrefab)
                 {
@@ -62,17 +64,44 @@ namespace Project.Scripts.HexCore
             return sameColor;
         }
 
-        private IEnumerator MoveHexagonsTo(HexCell from, HexCell to)
+        private IEnumerator MoveOneHex(HexCell from, HexCell to)
         {
-            // ... анимация перемещения с использованием _moveCurve и _currentSpeedMultiplier
-            yield return null;
+            // Убираем один гекс из источника (визуально верхний)
+            Hex movedHex = from.CurrentStack.RemoveTopHex(); // метод нужно добавить в HexStack
+            if (movedHex == null) yield break;
+
+            // Начальная и конечная точки (позиции самих стопок + смещение по высоте)
+            Vector3 startPos = from.transform.position + Vector3.up * (from.CurrentStack.Count * 0.15f);
+            Vector3 endPos = to.transform.position + Vector3.up * (to.CurrentStack.Count * 0.15f);
+
+            float duration = _baseMoveDuration / _currentSpeedMultiplier;
+            float elapsed = 0f;
+
+            while (elapsed < duration)
+            {
+                elapsed += Time.deltaTime;
+                float t = _moveCurve.Evaluate(Mathf.Clamp01(elapsed / duration));
+                movedHex.transform.position = Vector3.Lerp(startPos, endPos, t);
+                yield return null;
+            }
+
+            // Добавляем гекс в целевую стопку
+            to.CurrentStack.AddHexagon(movedHex); // метод AddHexagon с параметром
+            _currentSpeedMultiplier += Speed;
         }
 
         private IEnumerator DissolveStack(HexCell cell)
         {
-            // ... анимация исчезновения
+            // Простая анимация исчезновения (можно заменить на партиклы)
+            float t = 0f;
+            Vector3 originalScale = cell.CurrentStack.transform.localScale;
+            while (t < 0.3f)
+            {
+                t += Time.deltaTime;
+                cell.CurrentStack.transform.localScale = Vector3.Lerp(originalScale, Vector3.zero, t / 0.3f);
+                yield return null;
+            }
             cell.RemoveStack();
-            yield return null;
         }
     }
 }
