@@ -118,7 +118,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.playworks.upp": {
-      "version": "file:../../../установщики/7.2.0 Unity Playworks/scripts",
+      "version": "file:../../../7.2.0 Unity Playworks/scripts",
       "depth": 0,
       "source": "local",
       "dependencies": {}

@@ -1,0 +1,1 @@
+{"id":47680,"path":".\\Library\\PackageCache\\com.gustavopsantos.reflex@14.1.0\\Resources\\link.xml","assetBundleId":-1,"data":["link",null,"<linker>\r\n    <assembly fullname=\"System.Core\">\r\n        <type fullname=\"System.Linq.Expressions.Interpreter.LightLambda\" preserve=\"all\" \/>\r\n    <\/assembly>\r\n<\/linker>"]}
