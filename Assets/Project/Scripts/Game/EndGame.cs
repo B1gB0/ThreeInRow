@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Project.Scripts.UI;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,7 @@ namespace Project.Scripts.Game
     {
         [SerializeField] private CanvasGroup _endGameCanvasGroup;
         [SerializeField] private Button _playNowButton;
+        [SerializeField] private TutorialPointer _tutorialPointer;
 
         private void Start()
         {
@@ -16,6 +18,7 @@ namespace Project.Scripts.Game
 
         public void ShowEndCard()
         {
+            _tutorialPointer?.CompleteTutorial();
             StartCoroutine(FadeIn());
         }
 

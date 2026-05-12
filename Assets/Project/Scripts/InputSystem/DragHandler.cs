@@ -61,6 +61,7 @@ namespace Project.Scripts.InputSystem
             transform.position = lifted;
 
             _tutorialPointer?.OnPlayerStartedDrag();
+            _tutorialPointer?.CompleteTutorial();
         }
 
         public void OnDrag(PointerEventData eventData)
@@ -97,6 +98,8 @@ namespace Project.Scripts.InputSystem
             {
                 StartCoroutine(ReturnToOriginalPosition());
             }
+            
+            _tutorialPointer.OnTutorial();
         }
         
         private bool TryGetPointOnLiftPlane(PointerEventData eventData, out Vector3 point)

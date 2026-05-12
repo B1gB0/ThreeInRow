@@ -561,11 +561,11 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 1617548039
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &368093450
 RectTransform:
@@ -581,6 +581,7 @@ RectTransform:
   m_Children:
   - {fileID: 397380854}
   - {fileID: 1613653150}
+  - {fileID: 1847737533}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1147,8 +1148,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1847737533}
+  m_Children: []
   m_Father: {fileID: 368093450}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1169,11 +1169,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _handObject: {fileID: 1847737532}
-  _stackPositions:
-  - {fileID: 129230963}
-  - {fileID: 1375597009}
-  - {fileID: 695505659}
-  _idleTimeToShow: 2
+  _handRect: {fileID: 1847737533}
+  _parentCanvas: {fileID: 368093449}
+  _entryPoint: {fileID: 1725962889}
+  _idleTimeToShow: 4
+  _distance: 30
+  _duration: 0.6
 --- !u!1 &1725962888
 GameObject:
   m_ObjectHideFlags: 0
@@ -1251,6 +1252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _endGameCanvasGroup: {fileID: 397380855}
   _playNowButton: {fileID: 905567162}
+  _tutorialPointer: {fileID: 1613653151}
 --- !u!114 &1725962892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1314,12 +1316,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1847737532}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1613653150}
+  m_Father: {fileID: 368093450}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1340,7 +1342,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:

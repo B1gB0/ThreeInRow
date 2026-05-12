@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Project.Scripts.HexCore;
+using Project.Scripts.InputSystem;
 using Project.Scripts.UI;
 using UnityEngine;
 
@@ -24,12 +25,32 @@ namespace Project.Scripts.Game
             foreach (var stackPrefab in _initialStacks)
             {
                 HexStack hexStack = Instantiate(stackPrefab);
-                hexStack.GetServices(_tutorialPointer, _chainReactionOfHex, this, _hexGrid);
                 PlaceStackRandomly(hexStack);
+                hexStack.GetServices(_tutorialPointer, _chainReactionOfHex, this, _hexGrid);
                 _activeStacks.Add(hexStack);
             }
 
             RespawnDragStacks();
+        }
+
+        public List<HexStack> GetActiveDragStacks()
+        {
+            // удаляем null и те, у которых DragHandler выключен
+            _dragStacks.RemoveAll(stack => stack == null || stack.GetComponent<DragHandler>()?.enabled != true);
+            return _dragStacks;
+        }
+
+        public void OnDragStackPlaced(HexStack usedStack)
+        {
+            if (!_dragStacks.Contains(usedStack))
+                return;
+
+            _dragStacks.Remove(usedStack);
+
+            if (_dragStacks.Count == 0)
+            {
+                RespawnDragStacks();
+            }
         }
 
         private void RespawnDragStacks()
@@ -48,19 +69,6 @@ namespace Project.Scripts.Game
                 _dragStacks.Add(newStack);
 
                 newStack.MoveToPosition(targetPos, _dragSpawnDuration);
-            }
-        }
-
-        public void OnDragStackPlaced(HexStack usedStack)
-        {
-            if (!_dragStacks.Contains(usedStack))
-                return;
-
-            _dragStacks.Remove(usedStack);
-
-            if (_dragStacks.Count == 0)
-            {
-                RespawnDragStacks();
             }
         }
 
