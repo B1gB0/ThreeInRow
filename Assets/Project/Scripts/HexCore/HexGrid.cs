@@ -42,6 +42,15 @@ namespace Project.Scripts.HexCore
 
             return emptyCells;
         }
+        
+        public Vector2Int WorldToAxial(Vector3 worldPos)
+        {
+            // Обратные формулы для flat‑top
+            float q = (2f / 3f * worldPos.x) / _cellSpacing;
+            float r = (-1f / 3f * worldPos.x + Mathf.Sqrt(3f) / 3f * worldPos.z) / _cellSpacing;
+
+            return CubeRound(q, r);
+        }
 
         private void GenerateGrid()
         {
@@ -59,6 +68,25 @@ namespace Project.Scripts.HexCore
                     _cells.Add(coord, cell);
                 }
             }
+        }
+
+        private Vector2Int CubeRound(float q, float r)
+        {
+            float s = -q - r;
+            int rq = Mathf.RoundToInt(q);
+            int rr = Mathf.RoundToInt(r);
+            int rs = Mathf.RoundToInt(s);
+
+            float qDiff = Mathf.Abs(rq - q);
+            float rDiff = Mathf.Abs(rr - r);
+            float sDiff = Mathf.Abs(rs - s);
+
+            if (qDiff > rDiff && qDiff > sDiff)
+                rq = -rr - rs;
+            else if (rDiff > sDiff)
+                rr = -rq - rs;
+
+            return new Vector2Int(rq, rr);
         }
 
         private Vector3 AxialToWorld(int q, int r)

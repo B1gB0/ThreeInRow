@@ -1112,8 +1112,8 @@ MonoBehaviour:
   - {fileID: 6397226639237130487, guid: 6918ec240ab3bb944a9d374f275f7f90, type: 3}
   - {fileID: 6397226639237130487, guid: b9d4d64e9a3fbe540bd6c54d1b7c4734, type: 3}
   - {fileID: 6397226639237130487, guid: 6918ec240ab3bb944a9d374f275f7f90, type: 3}
-  _dragHexStack: {fileID: 6397226639237130487, guid: 1efedb1132075df4cb341c78dec358f5, type: 3}
-  _dragHexStackPointSpawn:
+  _dragHexStackPrefab: {fileID: 6397226639237130487, guid: 1efedb1132075df4cb341c78dec358f5, type: 3}
+  _dragHexStackSpawnPoints:
   - {fileID: 129230963}
   - {fileID: 1375597009}
   - {fileID: 695505659}

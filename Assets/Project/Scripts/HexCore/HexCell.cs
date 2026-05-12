@@ -43,7 +43,6 @@ namespace Project.Scripts.HexCore
         {
             if (CurrentStack != null)
             {
-                Destroy(CurrentStack.gameObject);
                 CurrentStack = null;
                 IsEmpty = true;
             }

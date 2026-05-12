@@ -9,35 +9,58 @@ namespace Project.Scripts.Game
     {
         [SerializeField] private HexGrid _hexGrid;
         [SerializeField] private HexStack[] _initialStacks;
-        [SerializeField] private HexStack _dragHexStack;
-        [SerializeField] private Transform[] _dragHexStackPointSpawn;
+        [SerializeField] private HexStack _dragHexStackPrefab;
+        [SerializeField] private Transform[] _dragHexStackSpawnPoints;
         [SerializeField] private EndGame _endGame;
         [SerializeField] private ChainReactionOfHex _chainReactionOfHex;
         [SerializeField] private TutorialPointer _tutorialPointer;
 
         private List<HexStack> _activeStacks = new();
+        private List<HexStack> _dragStacks = new();
 
         private void Start()
         {
-            // Размещаем стартовые стопки в случайных пустых ячейках
-            foreach (var stack in _initialStacks)
+            foreach (var stackPrefab in _initialStacks)
             {
-                HexStack hexStack = Instantiate(stack);
-                hexStack.GetServices(_tutorialPointer, _chainReactionOfHex);
+                HexStack hexStack = Instantiate(stackPrefab);
+                hexStack.GetServices(_tutorialPointer, _chainReactionOfHex, this, _hexGrid);
                 PlaceStackRandomly(hexStack);
                 _activeStacks.Add(hexStack);
             }
+            
+            RespawnDragStacks();
+        }
+        
+        private void RespawnDragStacks()
+        {
+            // Очищаем старые ссылки (если были)
+            _dragStacks.Clear();
 
-            foreach (var spawnPoint in _dragHexStackPointSpawn)
+            for (int i = 0; i < _dragHexStackSpawnPoints.Length; i++)
             {
-                HexStack hexStack = Instantiate(_dragHexStack, spawnPoint.position, Quaternion.identity);
-                hexStack.GetServices(_tutorialPointer, _chainReactionOfHex);
+                Transform spawnPoint = _dragHexStackSpawnPoints[i];
+                HexStack newStack = Instantiate(_dragHexStackPrefab, spawnPoint.position, Quaternion.identity);
+                newStack.SpawnPointIndex = i;
+                newStack.GetServices(_tutorialPointer, _chainReactionOfHex, this, _hexGrid);
+                _dragStacks.Add(newStack);
+            }
+        }
+        
+        public void OnDragStackPlaced(HexStack usedStack)
+        {
+            if (!_dragStacks.Contains(usedStack))
+                return;
+
+            _dragStacks.Remove(usedStack);
+            
+            if (_dragStacks.Count == 0)
+            {
+                RespawnDragStacks();
             }
         }
 
         private void PlaceStackRandomly(HexStack stack)
         {
-            // Поиск случайной пустой ячейки
             List<HexCell> emptyCells = _hexGrid.GetEmptyCells();
             if (emptyCells.Count == 0) return;
 
@@ -51,7 +74,6 @@ namespace Project.Scripts.Game
             _activeStacks.Remove(stack);
             if (_activeStacks.Count == 0)
             {
-                // Все стопки сложились — показываем пэкшот
                 _endGame.ShowEndCard();
             }
         }

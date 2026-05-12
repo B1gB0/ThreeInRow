@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Project.Scripts.Game;
 using Project.Scripts.InputSystem;
 using Project.Scripts.UI;
 using UnityEngine;
@@ -18,7 +19,7 @@ namespace Project.Scripts.HexCore
 
         [SerializeField] private int _maxHexagons = 10;
         [SerializeField] private bool _isRandom = true;
-        [SerializeField] private int _noRandomCount; // используется, когда _isRandom == false
+        [SerializeField] private int _noRandomCount;
 
         [Header("Два цвета")]
         [SerializeField] private bool _isTwoColors;
@@ -26,7 +27,7 @@ namespace Project.Scripts.HexCore
         [Header("Ссылки")]
         [SerializeField] private DragHandler _dragHandler;
 
-        // Текущий префаб для одиночного цвета (оставлен для обратной совместимости)
+        public int SpawnPointIndex { get; set; } = -1;
         public Hex CurrentHexPrefab { get; private set; }
 
         public int Count => _hexagons.Count;
@@ -59,7 +60,7 @@ namespace Project.Scripts.HexCore
                 // Устанавливаем CurrentHexPrefab для первого цвета
                 CurrentHexPrefab = firstColor;
                 for (int i = 0; i < firstCount; i++)
-                    AddHexagon();   // создаём новый гекс из CurrentHexPrefab
+                    AddHexagon(); // создаём новый гекс из CurrentHexPrefab
 
                 // Меняем CurrentHexPrefab для второго цвета
                 CurrentHexPrefab = secondColor;
@@ -70,14 +71,18 @@ namespace Project.Scripts.HexCore
             {
                 CurrentHexPrefab = _possibleColors[Random.Range(0, _possibleColors.Length)];
                 for (int i = 0; i < count; i++)
-                    AddHexagon();   // без параметров!
+                    AddHexagon(); // без параметров!
             }
         }
 
-        public void GetServices(TutorialPointer tutorialPointer, ChainReactionOfHex chainReactionOfHex)
+        public void GetServices(
+            TutorialPointer tutorialPointer,
+            ChainReactionOfHex chainReactionOfHex,
+            EntryPoint entryPoint,
+            HexGrid hexGrid)
         {
             if (_dragHandler != null)
-                _dragHandler.GetServices(tutorialPointer, chainReactionOfHex);
+                _dragHandler.GetServices(tutorialPointer, chainReactionOfHex, entryPoint, hexGrid);
         }
 
         public void AddHexagon(Hex hexInstance)
@@ -147,19 +152,22 @@ namespace Project.Scripts.HexCore
 
         public void RemoveTopHexes(int count)
         {
-            for (int i = 0; i < count; i++)
+            int toRemove = Mathf.Min(count, _hexagons.Count); // не удаляем больше, чем есть
+            for (int i = 0; i < toRemove; i++)
             {
-                if (_hexagons.Count == 0) break;
-                Hex hex = _hexagons[^1];
+                // Удаляем последний элемент (верхний)
+                Hex hex = _hexagons[_hexagons.Count - 1];
                 _hexagons.RemoveAt(_hexagons.Count - 1);
-                Destroy(hex.gameObject);
+                if (hex != null) Destroy(hex.gameObject);
             }
 
+            // Если стек полностью опустел — удаляем его из ячейки и уничтожаем объект
             if (_hexagons.Count == 0)
             {
-                CurrentCell?.RemoveStack();
-                // Если ячейки нет, просто уничтожаем объект
-                if (CurrentCell == null) Destroy(gameObject);
+                if (CurrentCell != null)
+                    CurrentCell.RemoveStack();
+                else
+                    Destroy(gameObject);
             }
         }
 
@@ -204,6 +212,36 @@ namespace Project.Scripts.HexCore
             onComplete?.Invoke();
             _moveRoutine = null;
         }
-        // ==============================
+        
+        public void TryRemoveTopColorGroup(Hex sample)
+        {
+            int sameCount = 0;
+            for (int i = _hexagons.Count - 1; i >= 0; i--)
+            {
+                if (_hexagons[i]._hexColor == sample._hexColor)
+                    sameCount++;
+                else
+                    break;
+            }
+
+            if (sameCount < 10) return;
+
+            for (int i = 0; i < sameCount; i++)
+            {
+                Hex top = _hexagons[_hexagons.Count - 1];
+                _hexagons.RemoveAt(_hexagons.Count - 1);
+                Destroy(top.gameObject);
+            }
+
+            if (_hexagons.Count == 0)
+            {
+                if (CurrentCell != null)
+                {
+                    CurrentCell.RemoveStack();   // ячейка становится пустой
+                    CurrentCell = null;
+                }
+                Destroy(gameObject);
+            }
+        }
     }
 }
