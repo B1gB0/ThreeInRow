@@ -14,6 +14,7 @@ namespace Project.Scripts.Game
         [SerializeField] private EndGame _endGame;
         [SerializeField] private ChainReactionOfHex _chainReactionOfHex;
         [SerializeField] private TutorialPointer _tutorialPointer;
+        [SerializeField] private float _dragSpawnDuration = 0.5f;
 
         private List<HexStack> _activeStacks = new();
         private List<HexStack> _dragStacks = new();
@@ -27,32 +28,36 @@ namespace Project.Scripts.Game
                 PlaceStackRandomly(hexStack);
                 _activeStacks.Add(hexStack);
             }
-            
+
             RespawnDragStacks();
         }
-        
+
         private void RespawnDragStacks()
         {
-            // Очищаем старые ссылки (если были)
             _dragStacks.Clear();
 
             for (int i = 0; i < _dragHexStackSpawnPoints.Length; i++)
             {
                 Transform spawnPoint = _dragHexStackSpawnPoints[i];
-                HexStack newStack = Instantiate(_dragHexStackPrefab, spawnPoint.position, Quaternion.identity);
+                Vector3 targetPos = spawnPoint.position;
+                Vector3 startPos = targetPos + -Vector3.forward * 5.5f;
+
+                HexStack newStack = Instantiate(_dragHexStackPrefab, startPos, Quaternion.identity);
                 newStack.SpawnPointIndex = i;
                 newStack.GetServices(_tutorialPointer, _chainReactionOfHex, this, _hexGrid);
                 _dragStacks.Add(newStack);
+
+                newStack.MoveToPosition(targetPos, _dragSpawnDuration);
             }
         }
-        
+
         public void OnDragStackPlaced(HexStack usedStack)
         {
             if (!_dragStacks.Contains(usedStack))
                 return;
 
             _dragStacks.Remove(usedStack);
-            
+
             if (_dragStacks.Count == 0)
             {
                 RespawnDragStacks();
@@ -67,15 +72,6 @@ namespace Project.Scripts.Game
             HexCell cell = emptyCells[Random.Range(0, emptyCells.Count)];
             cell.PlaceStack(stack);
             stack.CurrentCell = cell;
-        }
-
-        public void OnStackRemoved(HexStack stack)
-        {
-            _activeStacks.Remove(stack);
-            if (_activeStacks.Count == 0)
-            {
-                _endGame.ShowEndCard();
-            }
         }
     }
 }

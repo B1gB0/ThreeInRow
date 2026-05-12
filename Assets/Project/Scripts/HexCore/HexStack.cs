@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using Project.Scripts.Game;
 using Project.Scripts.InputSystem;
 using Project.Scripts.UI;
@@ -9,6 +10,9 @@ namespace Project.Scripts.HexCore
 {
     public class HexStack : MonoBehaviour
     {
+        private const float DurationShow = 0.4f;
+        private const float DurationHide = 0.3f;
+        
         private readonly List<Hex> _hexagons = new();
 
         [Header("Цвета / префабы гексов")]
@@ -73,6 +77,18 @@ namespace Project.Scripts.HexCore
                 for (int i = 0; i < count; i++)
                     AddHexagon(); // без параметров!
             }
+        }
+        
+        public void AnimateMove(
+            Transform showPoint)
+        {
+            Sequence _ = DOTween.Sequence()
+                .Append(gameObject.transform.DOMove(showPoint.position, DurationShow))
+                .SetUpdate(true)
+                .OnComplete(() =>
+                {
+                    gameObject.transform.DOKill(true);
+                });
         }
 
         public void GetServices(
