@@ -2,7 +2,7 @@
     "version": "7.2.0",
     "projectId": "de0a43782df49ee41925f5872f728e15",
     "applicationID": 39372,
-    "creativeName": "",
+    "creativeName": "ThreeInRow",
     "pgServer": "EU",
     "window": {
         "‐⁘": true
@@ -244,7 +244,7 @@
         "packages": {
             "default": {
                 "applicationName": "",
-                "orientation": "unspecified",
+                "orientation": "portrait",
                 "languages": [
                     "en"
                 ]
@@ -24413,8 +24413,8 @@
                 "default": {
                     "channels": 1,
                     "startTime": "00:00.000",
-                    "endTime": "00:00.000",
-                    "lengthInSeconds": 0.0,
+                    "endTime": "00:30.000",
+                    "lengthInSeconds": 30.0,
                     "bitrate": 128,
                     "script": "",
                     "ext": ""

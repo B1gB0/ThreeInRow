@@ -53,7 +53,7 @@ namespace Project.Scripts.Game
                 _remainingTime = 0f;
                 _timerView.Hide();
                 _endGame.ShowEndCard();
-                _tutorialPointer.CompleteTutorial();
+                _tutorialPointer.gameObject.SetActive(false);
             }
         }
 
