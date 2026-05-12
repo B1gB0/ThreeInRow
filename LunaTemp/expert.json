@@ -1,8 +1,31 @@
 {
     "entries": [
         {
-            "LogID": "2e5af6f6-50e1-4ac0-9eb7-e9cfbccac7f2",
-            "Timestamp": 1778600988862,
+            "LogID": "d54cbf63-ec55-4b7b-9e99-27b31e1217e0",
+            "Timestamp": 1778602170635,
+            "Stage": 1,
+            "Severity": 0,
+            "ErrorType": 0,
+            "ErrorCode": "LP1030",
+            "Description": "TMP Font Asset uses unsupported 'Atlas Population Mode'",
+            "Details": [
+                "TMP Font Asset '{0}' uses Atlas Population Mode '{1}' which is not supported"
+            ],
+            "DescriptionValues": [],
+            "DetailsValues": [
+                "LiberationSans SDF - Fallback",
+                "Dynamic"
+            ],
+            "LogCount": 1,
+            "FilePath": "",
+            "LinePosition": 0,
+            "ClassName": "",
+            "MemberName": "",
+            "Order": 0
+        },
+        {
+            "LogID": "593abdc4-53ca-4050-adfb-b245eed6a06b",
+            "Timestamp": 1778602174693,
             "Stage": 1,
             "Severity": 0,
             "ErrorType": 0,
@@ -22,7 +45,7 @@
             "LinePosition": 0,
             "ClassName": "",
             "MemberName": "",
-            "Order": 0
+            "Order": 1
         }
     ]
 }
