@@ -16,7 +16,7 @@ namespace Project.Scripts.HexCore
         private const float SmallPause = 0.1f;
         private const float BigPause = 0.5f;
         
-        [field: SerializeField] public Hex _prefabReference { get; private set; }
+        [field: SerializeField] public HexColor _hexColor { get; private set; }
 
         public void OnHide()
         {
