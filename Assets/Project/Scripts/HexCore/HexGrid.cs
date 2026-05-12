@@ -61,7 +61,7 @@ namespace Project.Scripts.HexCore
                 for (int r = r1; r <= r2; r++)
                 {
                     Vector2Int coord = new Vector2Int(q, r);
-                    Vector3 worldPos = AxialToWorld(q, r);
+                    Vector3 worldPos = transform.position + AxialToWorld(q, r);
                     HexCell cellGO = Instantiate(_hexCellPrefab, worldPos, Quaternion.identity, transform);
                     HexCell cell = cellGO.GetComponent<HexCell>();
                     cell.Initialize(coord, worldPos);
