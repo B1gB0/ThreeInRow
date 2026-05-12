@@ -12,20 +12,22 @@ namespace Project.Scripts.HexCore
         [SerializeField] private AudioSource _audioSource;
         [SerializeField] private AudioClip _destroyClip;
         
-        public Vector2Int Coordinates { get; private set; }
-        public Vector3 WorldPosition { get; private set; }
-
-        // Текущий стек, который находится в ячейке (null, если ячейка пуста)
-        public HexStack CurrentStack { get; private set; }
-
-        [field: SerializeField] public bool IsEmpty { get; private set; } = true;
+        private Vector2Int _coordinates;
+        private Vector3 _worldPosition;
+        private bool _isEmpty = true;
+        private HexStack _currentStack;
+        
+        public Vector2Int Coordinates => _coordinates;
+        public Vector3 WorldPosition => _worldPosition;
+        public bool IsEmpty => _isEmpty;
+        public HexStack CurrentStack => _currentStack;
 
         public void Initialize(Vector2Int coord, Vector3 worldPos)
         {
-            Coordinates = coord;
-            WorldPosition = worldPos;
+            _coordinates = coord;
+            _worldPosition = worldPos;
             transform.position = worldPos;
-            IsEmpty = true;
+            _isEmpty = true;
         }
 
         public void PlaceStack(HexStack stack)
@@ -33,8 +35,8 @@ namespace Project.Scripts.HexCore
             if (!IsEmpty)
                 return;
 
-            CurrentStack = stack;
-            IsEmpty = false;
+            _currentStack = stack;
+            _isEmpty = false;
             stack.transform.SetParent(transform);
             
             StartCoroutine(MoveToCell(stack));
@@ -47,8 +49,8 @@ namespace Project.Scripts.HexCore
             
             if (CurrentStack != null)
             {
-                CurrentStack = null;
-                IsEmpty = true;
+                _currentStack = null;
+                _isEmpty = true;
             }
         }
         

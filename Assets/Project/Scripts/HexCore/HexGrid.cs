@@ -10,10 +10,10 @@ namespace Project.Scripts.HexCore
         private readonly Dictionary<Vector2Int, HexCell> _cells = new();
 
         [Header("Настройки сетки")]
-        [SerializeField] private int _gridRadius = 3; // Радиус сетки в гексах
+        [SerializeField] private int _gridRadius = 3;
 
-        [SerializeField] private float _cellSpacing = 1.1f; // Расстояние между центрами ячеек
-        [SerializeField] private HexCell _hexCellPrefab; // Префаб ячейки поля
+        [SerializeField] private float _cellSpacing = 1.1f;
+        [SerializeField] private HexCell _hexCellPrefab;
 
         private void Start()
         {
@@ -45,7 +45,6 @@ namespace Project.Scripts.HexCore
         
         public Vector2Int WorldToAxial(Vector3 worldPos)
         {
-            // Обратные формулы для flat‑top
             float q = (2f / 3f * worldPos.x) / _cellSpacing;
             float r = (-1f / 3f * worldPos.x + Mathf.Sqrt(3f) / 3f * worldPos.z) / _cellSpacing;
 
