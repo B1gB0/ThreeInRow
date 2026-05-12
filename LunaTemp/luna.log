@@ -1,13 +1,13 @@
-report@config:load 25.29
+report@config:load 25.14
 Authorized using stored user info.
-report@account:authorize 13.57
+report@account:authorize 11.49
 stderr: "rm" �� ���� ����७��� ��� ���譥�
 ��������, �ᯮ��塞�� �ணࠬ��� ��� ������ 䠩���.
 
-Exporting assets from Unity.......
+Exporting assets from Unity........
 
 [ Stage1 ] Assets exported from Unity and staged for further processing
-report@unity:export 4056.09
+report@unity:export 5046.72
 SyntaxError: Unexpected token '<'
     at _0x4d98c9.prepare (D:\LunaHexGame\pipeline\Jakefile.js:6:3051842)
     at async _0x4d98c9.prepare (D:\LunaHexGame\pipeline\Jakefile.js:6:3057911)

@@ -12,7 +12,7 @@ namespace Project.Scripts.HexCore
     {
         private const float DurationShow = 0.4f;
         private const float DurationHide = 0.3f;
-        
+
         private readonly List<Hex> _hexagons = new();
 
         [Header("Цвета / префабы гексов")]
@@ -77,7 +77,7 @@ namespace Project.Scripts.HexCore
                     AddHexagon(); // без параметров!
             }
         }
-        
+
         public void AnimateMove(
             Transform showPoint)
         {
@@ -103,7 +103,7 @@ namespace Project.Scripts.HexCore
         public void AddExistingHex(Hex hexInstance)
         {
             if (hexInstance == null) return;
-            
+
             if (hexInstance.gameObject.scene.name == null)
             {
                 Debug.LogError("[HexStack] Пытаемся добавить префаб вместо инстанса!");
@@ -143,18 +143,20 @@ namespace Project.Scripts.HexCore
                 Debug.LogWarning("[HexStack] CurrentHexPrefab is null");
                 return;
             }
-            
+
             Hex newHex = Instantiate(CurrentHexPrefab, transform);
             newHex.transform.localPosition = new Vector3(0f, _hexagons.Count * 0.15f + 0.15f, 0f);
             _hexagons.Add(newHex);
         }
-        
+
         private void Shuffle<T>(List<T> list)
         {
             for (int i = 0; i < list.Count; i++)
             {
                 int randomIndex = Random.Range(i, list.Count);
-                (list[i], list[randomIndex]) = (list[randomIndex], list[i]);
+                T temp = list[i];
+                list[i] = list[randomIndex];
+                list[randomIndex] = temp;
             }
         }
 
@@ -188,7 +190,7 @@ namespace Project.Scripts.HexCore
             }
 
             if (sameCount < 10) yield break;
-            
+
             List<Hex> toRemove = new List<Hex>();
             for (int i = 0; i < sameCount; i++)
             {
@@ -196,13 +198,13 @@ namespace Project.Scripts.HexCore
                 _hexagons.RemoveAt(_hexagons.Count - 1);
                 toRemove.Add(top);
             }
-            
+
             foreach (var hex in toRemove)
             {
                 hex.OnHide();
                 yield return new WaitForSeconds(0.1f);
             }
-            
+
             yield return new WaitForSeconds(0.3f);
 
             if (_hexagons.Count == 0)
