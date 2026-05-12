@@ -35,7 +35,7 @@ namespace Project.Scripts.HexCore
             int count = 0;
             for (int i = stack.Count - 1; i >= 0; i--)
             {
-                if (stack.GetHexAt(i)._hexColor == sample._hexColor)
+                if (stack.GetHexAt(i).HexColor == sample.HexColor)
                     count++;
                 else
                     break;
@@ -65,12 +65,12 @@ namespace Project.Scripts.HexCore
 
                 foreach (var neighbor in sameColorNeighbors)
                 {
-                    if(startCell.CurrentStack.GetTopHex()._hexColor == topHex._hexColor)
+                    if(startCell.CurrentStack.GetTopHex().HexColor == topHex.HexColor)
                         _currentSpeedMultiplier += SpeedIncrease;
                     
                     while (!startCell.IsEmpty &&
                            startCell.CurrentStack.GetTopHex() != null &&
-                           startCell.CurrentStack.GetTopHex()._hexColor == topHex._hexColor &&
+                           startCell.CurrentStack.GetTopHex().HexColor == topHex.HexColor &&
                            neighbor != null && !neighbor.IsEmpty)
                     {
                         yield return StartCoroutine(MoveOneHex(startCell, neighbor));
@@ -78,14 +78,14 @@ namespace Project.Scripts.HexCore
                         if (startCell.IsEmpty)
                             yield break;
                         
-                        if (startCell.CurrentStack.GetTopHex()._hexColor != topHex._hexColor)
+                        if (startCell.CurrentStack.GetTopHex().HexColor != topHex.HexColor)
                             break;
                     }
                     
                     if (startCell.IsEmpty)
                         yield break;
 
-                    if (startCell.CurrentStack.GetTopHex()._hexColor != topHex._hexColor)
+                    if (startCell.CurrentStack.GetTopHex().HexColor != topHex.HexColor)
                         break;
                 }
                 
@@ -114,7 +114,7 @@ namespace Project.Scripts.HexCore
                 Hex neighborTop = neighbor.CurrentStack.GetTopHex();
                 if (neighborTop != null)
                 {
-                    bool same = neighborTop._hexColor == sample._hexColor;
+                    bool same = neighborTop.HexColor == sample.HexColor;
 
                     if (same)
                         result.Add(neighbor);
@@ -127,6 +127,7 @@ namespace Project.Scripts.HexCore
         private IEnumerator MoveOneHex(HexCell from, HexCell to)
         {
             Hex movedHex = from.CurrentStack.RemoveTopHex();
+            movedHex.OnPlayMoveSound();
             if (movedHex == null) yield break;
 
             Vector3 startPos = movedHex.transform.position;

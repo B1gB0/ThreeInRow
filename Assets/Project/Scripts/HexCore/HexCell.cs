@@ -5,12 +5,12 @@ namespace Project.Scripts.HexCore
 {
     public class HexCell : MonoBehaviour
     {
-        private const float OffsetY = 0.62f;
-
         [SerializeField] private Material _highlightMaterial;
         [SerializeField] private Material _defaultMaterial;
         [SerializeField] private MeshRenderer _meshRenderer;
         [SerializeField] private ParticleSystem _effect;
+        [SerializeField] private AudioSource _audioSource;
+        [SerializeField] private AudioClip _destroyClip;
         
         public Vector2Int Coordinates { get; private set; }
         public Vector3 WorldPosition { get; private set; }
@@ -36,12 +36,13 @@ namespace Project.Scripts.HexCore
             CurrentStack = stack;
             IsEmpty = false;
             stack.transform.SetParent(transform);
-            // Анимация плавного перемещения стека в ячейку (здесь просто устанавливаем позицию)
+            
             StartCoroutine(MoveToCell(stack));
         }
 
         public void RemoveStack()
         {
+            _audioSource.PlayOneShot(_destroyClip);
             _effect.Play();
             
             if (CurrentStack != null)
@@ -55,13 +56,11 @@ namespace Project.Scripts.HexCore
         {
             if (state)
             {
-                // Сохраняем оригинальный материал и ставим подсветку
                 if (_meshRenderer != null && _highlightMaterial != null)
                     _meshRenderer.material = _highlightMaterial;
             }
             else
             {
-                // Возвращаем исходный материал
                 if (_meshRenderer != null && _defaultMaterial != null)
                     _meshRenderer.material = _defaultMaterial;
             }

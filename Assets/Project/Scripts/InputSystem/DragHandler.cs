@@ -13,6 +13,8 @@ namespace Project.Scripts.InputSystem
         [Header("Настройки перетаскивания")]
         [SerializeField] private float _liftHeight = 0.5f;
         [SerializeField] private float _returnDuration = 0.25f;
+        [SerializeField] private AudioSource _audioSource;
+        [SerializeField] private AudioClip _pickupClip;
 
         private HexStack _stack;
         private Camera _mainCamera;
@@ -46,6 +48,7 @@ namespace Project.Scripts.InputSystem
 
         public void OnBeginDrag(PointerEventData eventData)
         {
+            _audioSource.PlayOneShot(_pickupClip);
             _isDragging = true;
 
             _originalCell = _stack.CurrentCell;

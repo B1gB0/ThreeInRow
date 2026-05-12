@@ -167,7 +167,7 @@ namespace Project.Scripts.HexCore
             int sameCount = 0;
             for (int i = _hexagons.Count - 1; i >= 0; i--)
             {
-                if (_hexagons[i]._hexColor == sample._hexColor)
+                if (_hexagons[i].HexColor == sample.HexColor)
                     sameCount++;
                 else
                     break;

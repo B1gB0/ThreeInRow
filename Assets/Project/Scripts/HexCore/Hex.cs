@@ -11,11 +11,20 @@ namespace Project.Scripts.HexCore
         private const float DurationShow = 0.4f;
         private const float DurationHide = 0.3f;
 
-        [field: SerializeField] public HexColor _hexColor { get; private set; }
+        [field: SerializeField] public HexColor HexColor { get; private set; }
+        [field: SerializeField] public AudioSource AudioSource { get; private set; }
+        [field: SerializeField] public AudioClip MoveClip { get; private set; }
+        [field: SerializeField] public AudioClip DestroyClip { get; private set; }
 
         public void OnHide()
         {
+            AudioSource.PlayOneShot(DestroyClip);
             AnimateScale(transform, true);
+        }
+
+        public void OnPlayMoveSound()
+        {
+            AudioSource.PlayOneShot(MoveClip);
         }
 
         private void AnimateScale(Transform target, bool isDisableTarget = false)
