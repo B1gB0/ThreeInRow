@@ -1,4 +1,5 @@
-﻿using Project.Scripts.Game;
+﻿using System.Collections;
+using Project.Scripts.Game;
 using Project.Scripts.HexCore;
 using Project.Scripts.UI;
 using UnityEngine;
@@ -18,7 +19,7 @@ namespace Project.Scripts.InputSystem
         private HexGrid _hexGrid;
         private TutorialPointer _tutorialPointer;
         private ChainReactionOfHex _chainReaction;
-        private EntryPoint _entryPoint;    // нужно добавить в using (если в другом namespace)
+        private EntryPoint _entryPoint;
 
         private bool _isDragging;
         private HexCell _originalCell;
@@ -51,8 +52,7 @@ namespace Project.Scripts.InputSystem
             _originalPosition = transform.position;
 
             _originalCell?.RemoveStack();
-
-            // Поднимаем стек
+            
             Vector3 lifted = transform.position;
             lifted.y = _liftHeight;
             transform.position = lifted;
@@ -77,28 +77,25 @@ namespace Project.Scripts.InputSystem
             _isDragging = false;
             RemoveHighlight();
 
-            HexCell targetCell = GetCellUnderStack();   // теперь через координаты
+            HexCell targetCell = GetCellUnderStack();
 
             if (targetCell != null && targetCell.IsEmpty)
             {
-                // Успешная установка
                 targetCell.PlaceStack(_stack);
                 _stack.CurrentCell = targetCell;
+                
                 _chainReaction?.StartChainReaction(targetCell);
-
-                // Отключаем возможность таскать этот стек
+                
                 enabled = false;
-                // Оповещаем EntryPoint
+                
                 _entryPoint?.OnDragStackPlaced(_stack);
             }
             else
             {
-                // Возврат на исходную позицию
                 StartCoroutine(ReturnToOriginalPosition());
             }
         }
-
-        // ---------- Вспомогательные методы ----------
+        
         private bool TryGetPointOnLiftPlane(PointerEventData eventData, out Vector3 point)
         {
             point = Vector3.zero;
@@ -141,16 +138,13 @@ namespace Project.Scripts.InputSystem
             }
         }
 
-        private System.Collections.IEnumerator ReturnToOriginalPosition()
+        private IEnumerator ReturnToOriginalPosition()
         {
-            // Отключаем коллайдер, пока движемся
             Collider col = GetComponent<Collider>();
             if (col) col.enabled = false;
-
-            // Плавное движение
+            
             yield return _stack.MoveToPosition(_originalPosition, _returnDuration);
-
-            // Возвращаем в исходную ячейку
+            
             if (_originalCell != null)
             {
                 _originalCell.PlaceStack(_stack);

@@ -154,10 +154,8 @@ namespace Project.Scripts.HexCore
             HexStack stack = cell.CurrentStack;
             var collider = stack.GetComponent<Collider>();
             if (collider) collider.enabled = false;
-
-            yield return new WaitForSeconds(0.2f / _currentSpeedMultiplier);
             
-            stack.TryRemoveTopColorGroup(sample);
+            yield return stack.TryRemoveTopColorGroup(sample);
 
             if (!cell.IsEmpty && collider) collider.enabled = true;
         }

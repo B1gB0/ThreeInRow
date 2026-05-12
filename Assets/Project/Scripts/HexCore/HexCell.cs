@@ -10,6 +10,7 @@ namespace Project.Scripts.HexCore
         [SerializeField] private Material _highlightMaterial;
         [SerializeField] private Material _defaultMaterial;
         [SerializeField] private MeshRenderer _meshRenderer;
+        [SerializeField] private ParticleSystem _effect;
         
         public Vector2Int Coordinates { get; private set; }
         public Vector3 WorldPosition { get; private set; }
@@ -41,6 +42,8 @@ namespace Project.Scripts.HexCore
 
         public void RemoveStack()
         {
+            _effect.Play();
+            
             if (CurrentStack != null)
             {
                 CurrentStack = null;

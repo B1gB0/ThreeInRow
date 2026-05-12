@@ -5,17 +5,12 @@ namespace Project.Scripts.HexCore
 {
     public class Hex : MonoBehaviour
     {
-        private const float MoveDistance = 15f;
-
         private const float ShowScale = 1f;
         private const float HideScale = 0f;
 
         private const float DurationShow = 0.4f;
         private const float DurationHide = 0.3f;
 
-        private const float SmallPause = 0.1f;
-        private const float BigPause = 0.5f;
-        
         [field: SerializeField] public HexColor _hexColor { get; private set; }
 
         public void OnHide()
@@ -23,39 +18,7 @@ namespace Project.Scripts.HexCore
             AnimateScale(transform, true);
         }
 
-        public void AnimateMove(
-            Transform target,
-            Transform showPoint,
-            Transform hidePoint,
-            bool isDisableTarget = false,
-            bool isSetParentToPoint = false)
-        {
-            target.DOKill(true);
-
-            if (!isDisableTarget)
-            {
-                target.gameObject.SetActive(true);
-                target.localPosition = hidePoint.localPosition;
-            }
-
-            Sequence _ = DOTween.Sequence()
-                .Append(!isDisableTarget
-                    ? target.DOMove(showPoint.position, DurationShow)
-                    : target.DOMove(hidePoint.position, DurationHide))
-                .SetEase(!isDisableTarget ? Ease.InSine : Ease.OutSine)
-                .SetUpdate(true)
-                .OnComplete(() =>
-                {
-                    TryOffGameObject(target, isDisableTarget);
-
-                    if (isSetParentToPoint)
-                    {
-                        target.SetParent(isDisableTarget ? hidePoint : showPoint);
-                    }
-                });
-        }
-
-        public void AnimateScale(Transform target, bool isDisableTarget = false)
+        private void AnimateScale(Transform target, bool isDisableTarget = false)
         {
             if (!IsTargetValid(target))
                 return;
@@ -65,16 +28,13 @@ namespace Project.Scripts.HexCore
 
             var scaleSequence = CreateScaleSequence(target, isDisableTarget);
 
-            scaleSequence.OnComplete(() =>
-            {
-                TryOffGameObject(target, isDisableTarget);
-            });
+            scaleSequence.OnComplete(DeleteGameObject);
         }
 
-        private void TryOffGameObject(Transform target, bool isDisableTarget)
+        private void DeleteGameObject()
         {
-            if (isDisableTarget && IsTargetValid(target))
-                target.gameObject.SetActive(false);
+            gameObject.transform.DOKill(true);
+            Destroy(gameObject);
         }
 
         private Sequence CreateScaleSequence(Transform target, bool isDisableTarget)

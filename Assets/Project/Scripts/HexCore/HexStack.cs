@@ -85,19 +85,6 @@ namespace Project.Scripts.HexCore
                 _dragHandler.GetServices(tutorialPointer, chainReactionOfHex, entryPoint, hexGrid);
         }
 
-        public void AddHexagon(Hex hexInstance)
-        {
-            if (_hexagons.Count >= _maxHexagons)
-            {
-                Destroy(hexInstance.gameObject);
-                return;
-            }
-
-            hexInstance.transform.SetParent(transform);
-            hexInstance.transform.localPosition = new Vector3(0f, _hexagons.Count * 0.15f + 0.15f, 0f);
-            _hexagons.Add(hexInstance);
-        }
-
         public void AddExistingHex(Hex hexInstance)
         {
             if (hexInstance == null) return;
@@ -122,15 +109,6 @@ namespace Project.Scripts.HexCore
             return _moveRoutine;
         }
 
-        public Hex GetTopHexPrefab()
-        {
-            var top = GetTopHex();
-            return
-                top != null
-                    ? top
-                    : null; // или можно возвращать сам объект, а сравнивать через GetType или ссылку на префаб
-        }
-
         public Hex GetTopHex() => _hexagons.Count > 0 ? _hexagons[^1] : null;
 
         public Hex GetHexAt(int index) => (index >= 0 && index < _hexagons.Count) ? _hexagons[index] : null;
@@ -144,27 +122,6 @@ namespace Project.Scripts.HexCore
             return top;
         }
 
-        public void RemoveTopHexes(int count)
-        {
-            int toRemove = Mathf.Min(count, _hexagons.Count); // не удаляем больше, чем есть
-            for (int i = 0; i < toRemove; i++)
-            {
-                // Удаляем последний элемент (верхний)
-                Hex hex = _hexagons[_hexagons.Count - 1];
-                _hexagons.RemoveAt(_hexagons.Count - 1);
-                if (hex != null) Destroy(hex.gameObject);
-            }
-
-            // Если стек полностью опустел — удаляем его из ячейки и уничтожаем объект
-            if (_hexagons.Count == 0)
-            {
-                if (CurrentCell != null)
-                    CurrentCell.RemoveStack();
-                else
-                    Destroy(gameObject);
-            }
-        }
-
         private void AddHexagon()
         {
             if (CurrentHexPrefab == null)
@@ -172,14 +129,12 @@ namespace Project.Scripts.HexCore
                 Debug.LogWarning("[HexStack] CurrentHexPrefab is null");
                 return;
             }
-
-            // Инстанцируем копию префаба как дочерний объект
+            
             Hex newHex = Instantiate(CurrentHexPrefab, transform);
             newHex.transform.localPosition = new Vector3(0f, _hexagons.Count * 0.15f + 0.15f, 0f);
             _hexagons.Add(newHex);
         }
-
-        // Вспомогательный метод для случайного перемешивания списка
+        
         private void Shuffle<T>(List<T> list)
         {
             for (int i = 0; i < list.Count; i++)
@@ -206,8 +161,8 @@ namespace Project.Scripts.HexCore
             onComplete?.Invoke();
             _moveRoutine = null;
         }
-        
-        public void TryRemoveTopColorGroup(Hex sample)
+
+        public IEnumerator TryRemoveTopColorGroup(Hex sample)
         {
             int sameCount = 0;
             for (int i = _hexagons.Count - 1; i >= 0; i--)
@@ -218,22 +173,32 @@ namespace Project.Scripts.HexCore
                     break;
             }
 
-            if (sameCount < 10) return;
-
+            if (sameCount < 10) yield break;
+            
+            List<Hex> toRemove = new List<Hex>();
             for (int i = 0; i < sameCount; i++)
             {
-                Hex top = _hexagons[_hexagons.Count - 1];
+                Hex top = _hexagons[^1];
                 _hexagons.RemoveAt(_hexagons.Count - 1);
-                Destroy(top.gameObject);
+                toRemove.Add(top);
             }
+            
+            foreach (var hex in toRemove)
+            {
+                hex.OnHide();
+                yield return new WaitForSeconds(0.1f);
+            }
+            
+            yield return new WaitForSeconds(0.3f);
 
             if (_hexagons.Count == 0)
             {
                 if (CurrentCell != null)
                 {
-                    CurrentCell.RemoveStack();   // ячейка становится пустой
+                    CurrentCell.RemoveStack();
                     CurrentCell = null;
                 }
+
                 Destroy(gameObject);
             }
         }
