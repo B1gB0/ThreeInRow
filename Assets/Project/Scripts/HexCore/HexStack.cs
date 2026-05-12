@@ -15,6 +15,7 @@ namespace Project.Scripts.HexCore
 
         [Header("Количество гексов")]
         [SerializeField] private int _minHexagons = 1;
+
         [SerializeField] private int _maxHexagons = 10;
         [SerializeField] private bool _isRandom = true;
         [SerializeField] private int _noRandomCount; // используется, когда _isRandom == false
@@ -31,51 +32,45 @@ namespace Project.Scripts.HexCore
         public int Count => _hexagons.Count;
         public HexCell CurrentCell { get; set; }
         public Vector3 OriginalPosition { get; private set; }
-        
-        private Coroutine _moveRoutine; 
+
+        private Coroutine _moveRoutine;
 
         private void Start()
         {
-            OriginalPosition = transform.position;
-            
-            // Определяем количество гексов в стопке
+            // Определяем количество гексов
             int count = _isRandom
-                ? Random.Range(_minHexagons, _maxHexagons + 1) // включаем max
+                ? Random.Range(_minHexagons, _maxHexagons + 1)
                 : Mathf.Clamp(_noRandomCount, _minHexagons, _maxHexagons);
 
             if (_isTwoColors)
             {
-                // Нужно минимум 2 разных префаба
                 if (_possibleColors.Length < 2)
                 {
-                    Debug.LogError("[HexStack] Для двухцветной стопки нужно хотя бы 2 префаба в possibleColors!");
+                    Debug.LogError("Need at least 2 prefabs for two-color stack");
                     return;
                 }
 
-                // Выбираем два различных цвета случайным образом
                 List<Hex> shuffled = new List<Hex>(_possibleColors);
                 Shuffle(shuffled);
                 Hex firstColor = shuffled[0];
                 Hex secondColor = shuffled[1];
+                int firstCount = Random.Range(1, count);
 
-                // Случайная точка разделения: хотя бы по одному гексу каждого цвета
-                int firstColorCount = Random.Range(4, count); // от 1 до count-1
+                // Устанавливаем CurrentHexPrefab для первого цвета
+                CurrentHexPrefab = firstColor;
+                for (int i = 0; i < firstCount; i++)
+                    AddHexagon();   // создаём новый гекс из CurrentHexPrefab
 
-                // Заполняем сначала первым цветом, потом вторым
-                for (int i = 0; i < count; i++)
-                {
-                    Hex prefabToSpawn = (i < firstColorCount) ? firstColor : secondColor;
-                    AddHexagon(prefabToSpawn);
-                }
+                // Меняем CurrentHexPrefab для второго цвета
+                CurrentHexPrefab = secondColor;
+                for (int i = 0; i < count - firstCount; i++)
+                    AddHexagon();
             }
             else
             {
-                // Обычная одноцветная стопка
                 CurrentHexPrefab = _possibleColors[Random.Range(0, _possibleColors.Length)];
                 for (int i = 0; i < count; i++)
-                {
-                    AddHexagon();
-                }
+                    AddHexagon();   // без параметров!
             }
         }
 
@@ -85,48 +80,39 @@ namespace Project.Scripts.HexCore
                 _dragHandler.GetServices(tutorialPointer, chainReactionOfHex);
         }
 
-        /// <summary>
-        /// Добавляет гекс поверх стопки, используя текущий основной префаб (CurrentHexPrefab).
-        /// </summary>
-        public void AddHexagon()
-        {
-            if (CurrentHexPrefab == null)
-            {
-                Debug.LogWarning("[HexStack] CurrentHexPrefab не задан, добавление невозможно.");
-                return;
-            }
-            AddHexagon(CurrentHexPrefab);
-        }
-
-        /// <summary>
-        /// Добавляет гекс поверх стопки, используя указанный префаб.
-        /// </summary>
-        public void AddHexagon(Hex prefab)
+        public void AddHexagon(Hex hexInstance)
         {
             if (_hexagons.Count >= _maxHexagons)
+            {
+                Destroy(hexInstance.gameObject);
                 return;
+            }
 
-            Hex hex = Instantiate(prefab, transform);
-            hex.transform.localPosition = new Vector3(0f, _hexagons.Count * 0.15f + 0.15f, 0f);
-            _hexagons.Add(hex);
+            hexInstance.transform.SetParent(transform);
+            hexInstance.transform.localPosition = new Vector3(0f, _hexagons.Count * 0.15f + 0.15f, 0f);
+            _hexagons.Add(hexInstance);
         }
 
-        public void RemoveHexagon()
+        public void AddExistingHex(Hex hexInstance)
         {
-            if (_hexagons.Count == 0)
-                return;
+            if (hexInstance == null) return;
 
-            Hex hex = _hexagons[_hexagons.Count - 1];
-            _hexagons.Remove(hex);
-            Destroy(hex.gameObject);
-        }
-        
-        public Hex RemoveTopHex()
-        {
-            if (_hexagons.Count == 0) return null;
-            Hex top = _hexagons[_hexagons.Count - 1];
-            _hexagons.RemoveAt(_hexagons.Count - 1);
-            return top;
+            // Нельзя добавлять префаб! Проверяем, что это инстанс в сцене
+            if (hexInstance.gameObject.scene.name == null)
+            {
+                Debug.LogError("[HexStack] Пытаемся добавить префаб вместо инстанса!");
+                return;
+            }
+
+            if (_hexagons.Count >= _maxHexagons)
+            {
+                Destroy(hexInstance.gameObject);
+                return;
+            }
+
+            hexInstance.transform.SetParent(transform);
+            hexInstance.transform.localPosition = new Vector3(0f, _hexagons.Count * 0.15f + 0.15f, 0f);
+            _hexagons.Add(hexInstance);
         }
 
         public Coroutine MoveToPosition(Vector3 target, float duration, System.Action onComplete = null)
@@ -135,6 +121,60 @@ namespace Project.Scripts.HexCore
                 StopCoroutine(_moveRoutine);
             _moveRoutine = StartCoroutine(MoveRoutine(target, duration, onComplete));
             return _moveRoutine;
+        }
+
+        public Hex GetTopHexPrefab()
+        {
+            var top = GetTopHex();
+            return
+                top != null
+                    ? top
+                    : null; // или можно возвращать сам объект, а сравнивать через GetType или ссылку на префаб
+        }
+
+        public Hex GetTopHex() => _hexagons.Count > 0 ? _hexagons[^1] : null;
+
+        public Hex GetHexAt(int index) => (index >= 0 && index < _hexagons.Count) ? _hexagons[index] : null;
+
+        public Hex RemoveTopHex()
+        {
+            if (_hexagons.Count == 0) return null;
+            Hex top = _hexagons[^1];
+            _hexagons.RemoveAt(_hexagons.Count - 1);
+            top.transform.SetParent(null);
+            return top;
+        }
+
+        public void RemoveTopHexes(int count)
+        {
+            for (int i = 0; i < count; i++)
+            {
+                if (_hexagons.Count == 0) break;
+                Hex hex = _hexagons[^1];
+                _hexagons.RemoveAt(_hexagons.Count - 1);
+                Destroy(hex.gameObject);
+            }
+
+            if (_hexagons.Count == 0)
+            {
+                CurrentCell?.RemoveStack();
+                // Если ячейки нет, просто уничтожаем объект
+                if (CurrentCell == null) Destroy(gameObject);
+            }
+        }
+
+        private void AddHexagon()
+        {
+            if (CurrentHexPrefab == null)
+            {
+                Debug.LogWarning("[HexStack] CurrentHexPrefab is null");
+                return;
+            }
+
+            // Инстанцируем копию префаба как дочерний объект
+            Hex newHex = Instantiate(CurrentHexPrefab, transform);
+            newHex.transform.localPosition = new Vector3(0f, _hexagons.Count * 0.15f + 0.15f, 0f);
+            _hexagons.Add(newHex);
         }
 
         // Вспомогательный метод для случайного перемешивания списка
@@ -159,6 +199,7 @@ namespace Project.Scripts.HexCore
                 transform.position = Vector3.Lerp(start, target, t);
                 yield return null;
             }
+
             transform.position = target;
             onComplete?.Invoke();
             _moveRoutine = null;

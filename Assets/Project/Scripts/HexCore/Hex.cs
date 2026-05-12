@@ -15,14 +15,14 @@ namespace Project.Scripts.HexCore
 
         private const float SmallPause = 0.1f;
         private const float BigPause = 0.5f;
-
-        [field: SerializeField] public Material Material { get; private set; }
         
+        [field: SerializeField] public Hex _prefabReference { get; private set; }
+
         public void OnHide()
         {
             AnimateScale(transform, true);
         }
-        
+
         public void AnimateMove(
             Transform target,
             Transform showPoint,
@@ -54,13 +54,13 @@ namespace Project.Scripts.HexCore
                     }
                 });
         }
-        
+
         public void AnimateScale(Transform target, bool isDisableTarget = false)
         {
             if (!IsTargetValid(target))
                 return;
-            
-            if(!isDisableTarget)
+
+            if (!isDisableTarget)
                 target.gameObject.SetActive(true);
 
             var scaleSequence = CreateScaleSequence(target, isDisableTarget);
@@ -70,7 +70,7 @@ namespace Project.Scripts.HexCore
                 TryOffGameObject(target, isDisableTarget);
             });
         }
-        
+
         private void TryOffGameObject(Transform target, bool isDisableTarget)
         {
             if (isDisableTarget && IsTargetValid(target))
