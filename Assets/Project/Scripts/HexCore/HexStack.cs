@@ -42,7 +42,6 @@ namespace Project.Scripts.HexCore
 
         private void Start()
         {
-            // Определяем количество гексов
             int count = _isRandom
                 ? Random.Range(_minHexagons, _maxHexagons + 1)
                 : Mathf.Clamp(_noRandomCount, _minHexagons, _maxHexagons);
@@ -104,8 +103,7 @@ namespace Project.Scripts.HexCore
         public void AddExistingHex(Hex hexInstance)
         {
             if (hexInstance == null) return;
-
-            // Нельзя добавлять префаб! Проверяем, что это инстанс в сцене
+            
             if (hexInstance.gameObject.scene.name == null)
             {
                 Debug.LogError("[HexStack] Пытаемся добавить префаб вместо инстанса!");

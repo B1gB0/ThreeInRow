@@ -8,6 +8,7 @@ namespace Project.Scripts.Game
 {
     public class EntryPoint : MonoBehaviour
     {
+        [Header("Основные ссылки")]
         [SerializeField] private HexGrid _hexGrid;
         [SerializeField] private HexStack[] _initialStacks;
         [SerializeField] private HexStack _dragHexStackPrefab;
@@ -17,11 +18,18 @@ namespace Project.Scripts.Game
         [SerializeField] private TutorialPointer _tutorialPointer;
         [SerializeField] private float _dragSpawnDuration = 0.5f;
 
+        [Header("Таймер")]
+        [SerializeField] private float _gameDuration = 60f;      // общее время игры
+        [SerializeField] private TimerView _timerView;           // ссылка на вьюху
+
         private List<HexStack> _activeStacks = new();
         private List<HexStack> _dragStacks = new();
+        private float _remainingTime;
 
         private void Start()
         {
+            _remainingTime = _gameDuration;
+
             foreach (var stackPrefab in _initialStacks)
             {
                 HexStack hexStack = Instantiate(stackPrefab);
@@ -33,9 +41,24 @@ namespace Project.Scripts.Game
             RespawnDragStacks();
         }
 
+        private void Update()
+        {
+            if (_remainingTime <= 0f) return;
+
+            _remainingTime -= Time.deltaTime;
+            _timerView?.SetProgress(_remainingTime / _gameDuration);
+
+            if (_remainingTime <= 0f)
+            {
+                _remainingTime = 0f;
+                _timerView.Hide();
+                _endGame.ShowEndCard();
+                _tutorialPointer.CompleteTutorial();
+            }
+        }
+
         public List<HexStack> GetActiveDragStacks()
         {
-            // удаляем null и те, у которых DragHandler выключен
             _dragStacks.RemoveAll(stack => stack == null || stack.GetComponent<DragHandler>()?.enabled != true);
             return _dragStacks;
         }

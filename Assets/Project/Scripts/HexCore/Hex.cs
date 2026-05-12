@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using Project.Scripts.Game.Constants;
 using UnityEngine;
 
 namespace Project.Scripts.HexCore
@@ -11,7 +12,7 @@ namespace Project.Scripts.HexCore
         private const float DurationShow = 0.4f;
         private const float DurationHide = 0.3f;
 
-        [field: SerializeField] public HexColor HexColor { get; private set; }
+        [field: SerializeField] public ColorName HexColor { get; private set; }
         [field: SerializeField] public AudioSource AudioSource { get; private set; }
         [field: SerializeField] public AudioClip MoveClip { get; private set; }
         [field: SerializeField] public AudioClip DestroyClip { get; private set; }
