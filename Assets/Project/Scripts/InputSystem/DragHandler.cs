@@ -86,7 +86,7 @@ namespace Project.Scripts.InputSystem
             if (targetCell != null && targetCell.IsEmpty)
             {
                 targetCell.PlaceStack(_stack);
-                _stack.CurrentCell = targetCell;
+                _stack.SetCurrentCell(targetCell);
                 
                 _chainReaction?.StartChainReaction(targetCell);
                 
@@ -154,7 +154,7 @@ namespace Project.Scripts.InputSystem
             if (_originalCell != null)
             {
                 _originalCell.PlaceStack(_stack);
-                _stack.CurrentCell = _originalCell;
+                _stack.SetCurrentCell(_originalCell);
             }
 
             if (col) col.enabled = true;

@@ -10,9 +10,6 @@ namespace Project.Scripts.HexCore
 {
     public class HexStack : MonoBehaviour
     {
-        private const float DurationShow = 0.4f;
-        private const float DurationHide = 0.3f;
-
         private readonly List<Hex> _hexagons = new();
 
         [Header("Цвета / префабы гексов")]
@@ -31,14 +28,12 @@ namespace Project.Scripts.HexCore
         [Header("Ссылки")]
         [SerializeField] private DragHandler _dragHandler;
 
-        public int SpawnPointIndex { get; set; } = -1;
-        public Hex CurrentHexPrefab { get; private set; }
+        private Coroutine _moveRoutine;
+        private Hex _currentHexPrefab;
+        private HexCell _currentCell;
 
         public int Count => _hexagons.Count;
-        public HexCell CurrentCell { get; set; }
-        public Vector3 OriginalPosition { get; private set; }
-
-        private Coroutine _moveRoutine;
+        public HexCell CurrentCell => _currentCell;
 
         private void Start()
         {
@@ -61,33 +56,26 @@ namespace Project.Scripts.HexCore
                 int firstCount = Random.Range(1, count);
 
                 // Устанавливаем CurrentHexPrefab для первого цвета
-                CurrentHexPrefab = firstColor;
+                _currentHexPrefab = firstColor;
                 for (int i = 0; i < firstCount; i++)
                     AddHexagon(); // создаём новый гекс из CurrentHexPrefab
 
                 // Меняем CurrentHexPrefab для второго цвета
-                CurrentHexPrefab = secondColor;
+                _currentHexPrefab = secondColor;
                 for (int i = 0; i < count - firstCount; i++)
                     AddHexagon();
             }
             else
             {
-                CurrentHexPrefab = _possibleColors[Random.Range(0, _possibleColors.Length)];
+                _currentHexPrefab = _possibleColors[Random.Range(0, _possibleColors.Length)];
                 for (int i = 0; i < count; i++)
                     AddHexagon(); // без параметров!
             }
         }
 
-        public void AnimateMove(
-            Transform showPoint)
+        public void SetCurrentCell(HexCell cell)
         {
-            Sequence _ = DOTween.Sequence()
-                .Append(gameObject.transform.DOMove(showPoint.position, DurationShow))
-                .SetUpdate(true)
-                .OnComplete(() =>
-                {
-                    gameObject.transform.DOKill(true);
-                });
+            _currentCell = cell;
         }
 
         public void GetServices(
@@ -138,13 +126,13 @@ namespace Project.Scripts.HexCore
 
         private void AddHexagon()
         {
-            if (CurrentHexPrefab == null)
+            if (_currentHexPrefab == null)
             {
                 Debug.LogWarning("[HexStack] CurrentHexPrefab is null");
                 return;
             }
 
-            Hex newHex = Instantiate(CurrentHexPrefab, transform);
+            Hex newHex = Instantiate(_currentHexPrefab, transform);
             newHex.transform.localPosition = new Vector3(0f, _hexagons.Count * 0.15f + 0.15f, 0f);
             _hexagons.Add(newHex);
         }
@@ -212,7 +200,7 @@ namespace Project.Scripts.HexCore
                 if (CurrentCell != null)
                 {
                     CurrentCell.RemoveStack();
-                    CurrentCell = null;
+                    _currentCell = null;
                 }
 
                 Destroy(gameObject);

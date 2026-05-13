@@ -87,7 +87,6 @@ namespace Project.Scripts.Game
                 Vector3 startPos = targetPos + -Vector3.forward * 5.5f;
 
                 HexStack newStack = Instantiate(_dragHexStackPrefab, startPos, Quaternion.identity);
-                newStack.SpawnPointIndex = i;
                 newStack.GetServices(_tutorialPointer, _chainReactionOfHex, this, _hexGrid);
                 _dragStacks.Add(newStack);
 
@@ -102,7 +101,7 @@ namespace Project.Scripts.Game
 
             HexCell cell = emptyCells[Random.Range(0, emptyCells.Count)];
             cell.PlaceStack(stack);
-            stack.CurrentCell = cell;
+            stack.SetCurrentCell(cell);
         }
     }
 }
