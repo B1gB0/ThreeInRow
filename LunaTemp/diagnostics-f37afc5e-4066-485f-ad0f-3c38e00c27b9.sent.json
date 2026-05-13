@@ -1,0 +1,88 @@
+{
+  "BuildID": "f37afc5e-4066-485f-ad0f-3c38e00c27b9",
+  "Command": "project:deploy",
+  "ProjectID": "de0a43782df49ee41925f5872f728e15",
+  "ProjectStateHash": "3853a4fbe3b79ed9e1608ef32040a72163e2389fd3428a890cff57a5763237c4",
+  "StageCompletedAt": 3,
+  "EarliestFatalError": 0,
+  "StartTime": 1778650566702,
+  "EndTime": 1778650590098,
+  "PlaygroundUserID": 35690,
+  "OperatingSystem": "win32",
+  "UnityPackageID": null,
+  "TargetPlatform": "playground",
+  "UnityVersion": "2022.3.62f2",
+  "LunaVersion": "7.2.0",
+  "LogCount": 3,
+  "Logs": [
+    {
+      "LogID": "c1097544-c71f-4343-aaf4-422b0ff855d8",
+      "Order": 2,
+      "Timestamp": 1778650590307,
+      "Stage": 3,
+      "ErrorType": 3,
+      "ErrorCode": "LP3007",
+      "Description": "You are not using any custom events",
+      "Details": [
+        "You are not using any custom events. It is recommended to use custom events to have a better understanding of the playable."
+      ],
+      "DescriptionValues": [
+        ""
+      ],
+      "DetailsValues": [
+        ""
+      ],
+      "LogCount": 1,
+      "LinePosition": null,
+      "FilePath": "",
+      "ClassName": "",
+      "MemberName": "",
+      "Severity": 0
+    },
+    {
+      "LogID": "7f0860b3-e3c5-49b3-954c-dbbcdde537d4",
+      "Order": 2,
+      "Timestamp": 1778650590307,
+      "Stage": 3,
+      "ErrorType": 3,
+      "ErrorCode": "LP3011",
+      "Description": "You are not using any LunaPlaygroundFields attributes.",
+      "Details": [
+        "You are not using any LunaPlaygroundFields attributes, it allows you to configure your playable to different concepts to find the best variation, which can drastically improve playable performance on all ad networks."
+      ],
+      "DescriptionValues": null,
+      "DetailsValues": null,
+      "LogCount": 1,
+      "LinePosition": null,
+      "FilePath": "",
+      "ClassName": "",
+      "MemberName": "",
+      "Severity": 0
+    },
+    {
+      "LogID": "2072c4a0-f102-42c7-a124-9805760513e2",
+      "Order": 0,
+      "Timestamp": 1778650572124,
+      "Stage": 1,
+      "ErrorType": 3,
+      "ErrorCode": "LP1008",
+      "Description": "There are missing components on Directional Light.",
+      "Details": [
+        "There are missing components on Directional Light."
+      ],
+      "DescriptionValues": [
+        "Directional Light"
+      ],
+      "DetailsValues": [
+        "Directional Light",
+        "Directional Light"
+      ],
+      "LogCount": 1,
+      "LinePosition": 0,
+      "FilePath": "",
+      "ClassName": "",
+      "MemberName": "",
+      "Severity": 0
+    }
+  ]
+}

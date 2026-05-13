@@ -1,15 +1,352 @@
-report@config:load 21.74
 Authorized using stored user info.
-report@account:authorize 10.20
 stderr: "rm" �� ���� ����७��� ��� ���譥�
 ��������, �ᯮ��塞�� �ணࠬ��� ��� ������ 䠩���.
 
-Exporting assets from Unity............
+Exporting assets from Unity........
 
 [ Stage1 ] Assets exported from Unity and staged for further processing
-report@unity:export 9074.75
-SyntaxError: Unexpected token '<'
-    at _0x4d98c9.prepare (D:\LunaHexGame\pipeline\Jakefile.js:6:3051842)
-    at async _0x4d98c9.prepare (D:\LunaHexGame\pipeline\Jakefile.js:6:3057911)
-    at async _0x4d98c9.run (D:\LunaHexGame\pipeline\Jakefile.js:6:3051928)
-    at async _0x41f7c1.action (D:\LunaHexGame\pipeline\Jakefile.js:6:2896790)
+[ error ] $Failed to locate TTF file for the font named LegacyRuntime – falling back to Arial substitute.
+Using C:/Windows/Fonts/arial.ttf file to generate an atlas for LegacyRuntime[702] font
+  Using alphabet  §1234567890-=qwertyuiop[]asdfghjkl;'\`zxcvbnm,./±!@#$%^&*()_+QWERTYUIOP{}ASDFGHJKL:"|~ZXCVBNM<>?
+Combined 97 glyphs into bitmap texture at D:/Repositoris/ThreeInRow/LunaTemp/stage1/tmp/fonts/LegacyRuntime-702/output_0.png (59kb)
+Found custom rules for texture Assets/Project/Scenes/PlayableAds.unity/PrefilteredEnvironment.exr
+  {"maxWidth":512,"maxHeight":512,"format":"png32","compression":"quantSize","quality":65,"script":"","ext":"","name":"Assets/Project/","isOverride":true}
+Found custom rules for texture Assets/Project/Sprites/story_button.png
+  {"maxWidth":512,"maxHeight":512,"format":"png32","compression":"quantSize","quality":65,"script":"","ext":"","name":"Assets/Project/Sprites/","isOverride":true}
+Found custom rules for texture Assets/Project/Sprites/screen-5.jpg
+  {"maxWidth":512,"maxHeight":512,"format":"png32","compression":"quantSize","quality":65,"script":"","ext":"","name":"Assets/Project/Sprites/","isOverride":true}
+Found custom rules for texture Assets/Project/Sprites/PP_Color_Palette.png
+  {"maxWidth":512,"maxHeight":512,"format":"png32","compression":"quantSize","quality":65,"script":"","ext":"","name":"Assets/Project/Sprites/","isOverride":true}
+Found custom rules for texture Assets/Project/Sprites/story_button_green.png
+  {"maxWidth":512,"maxHeight":512,"format":"png32","compression":"quantSize","quality":65,"script":"","ext":"","name":"Assets/Project/Sprites/","isOverride":true}
+Found custom rules for texture Assets/Project/Sources/_HexTest/hex.png
+  {"maxWidth":512,"maxHeight":512,"format":"png32","compression":"quantSize","quality":65,"script":"","ext":"","name":"Assets/Project/","isOverride":true}
+Found custom rules for texture Assets/Project/Sources/HexAssets/tutorial hand.png
+  {"maxWidth":512,"maxHeight":512,"format":"png32","compression":"quantSize","quality":65,"script":"","ext":"","name":"Assets/Project/","isOverride":true}
+Resources:
+{}
+[ Stage2 ] Assets postprocessed and bundled successfully
+﻿
+[ error ] $﻿
+Diagnostics gathered successfully
+.NET Core 3 runtime not found.
+.NET Core 3 runtime not found.
+Компилятор Microsoft (R) Visual C# версии 4.3.1-3.22526.13 (41a5af9d)
+© Корпорация Майкрософт (Microsoft Corporation). Все права защищены.
+
+
+
+D:\Repositoris\ThreeInRow\Assets\Project\Scripts\Game\EndGame.cs(11,41): warning CS0649: Полю "EndGame._playNowButton" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null.
+
+D:\Repositoris\ThreeInRow\Assets\Project\Scripts\Game\EntryPoint.cs(17,53): warning CS0649: Полю "EntryPoint._chainReactionOfHex" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null.
+D:\Repositoris\ThreeInRow\Assets\Project\Scripts\InputSystem\DragHandler.cs(17,44): warning CS0649: Полю "DragHandler._pickupClip" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null.
+D:\Repositoris\ThreeInRow\Assets\Project\Scripts\HexCore\HexCell.cs(9,43): warning CS0649: Полю "HexCell._defaultMaterial" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null.
+D:\Repositoris\ThreeInRow\Assets\Project\Scripts\UI\TutorialPointer.cs(10,45): warning CS0649: Полю "TutorialPointer._handObject" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null.
+D:\Repositoris\ThreeInRow\Assets\Project\Scripts\HexCore\Hex.cs(15,44): warning CS0649: Полю "Hex._hexColor" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию .
+D:\Repositoris\ThreeInRow\Assets\Project\Scripts\Game\EntryPoint.cs(12,42): warning CS0649: Полю "EntryPoint._hexGrid" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null.
+D:\Repositoris\ThreeInRow\Assets\Project\Sources\Gentleland\SteampunkUI\Scripts\CursorSelector.cs(12,17): warning CS0649: Полю "CursorSelector.hotspot" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию .
+D:\Repositoris\ThreeInRow\Assets\Project\Sources\Unity UI Samples\Scripts\ScrollDetailTexture.cs(15,11): warning CS0169: Поле "ScrollDetailTexture.m_Mat" никогда не используется.
+D:\Repositoris\ThreeInRow\Assets\Project\Sources\Gentleland\SteampunkUI\Scripts\ClockSlider.cs(13,15): warning CS0649: Полю "ClockSlider.maxZRotation" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию 0.
+D:\Repositoris\ThreeInRow\Assets\Project\Scripts\Game\Constants\CustomPalette.cs(8,47): warning CS0649: Полю "CustomPalette.colors" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null.
+D:\Repositoris\ThreeInRow\Assets\Project\Scripts\HexCore\HexStack.cs(29,46): warning CS0649: Полю "HexStack._dragHandler" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null.
+D:\Repositoris\ThreeInRow\Assets\Project\Scripts\Game\EndGame.cs(12,50): warning CS0649: Полю "EndGame._tutorialPointer" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null.
+D:\Repositoris\ThreeInRow\Assets\Project\Scripts\Game\EndGame.cs(10,46): warning CS0649: Полю "EndGame._endGameCanvasGroup" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null.
+D:\Repositoris\ThreeInRow\Assets\Project\Scripts\Game\EntryPoint.cs(23,44): warning CS0649: Полю "EntryPoint._timerView" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null.
+D:\Repositoris\ThreeInRow\Assets\Project\Scripts\Game\EntryPoint.cs(15,46): warning CS0649: Полю "EntryPoint._dragHexStackSpawnPoints" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null.
+
+D:\Repositoris\ThreeInRow\Assets\Project\Scripts\HexCore\ChainReactionOfHex.cs(17,49): warning CS0649: Полю "ChainReactionOfHex._moveCurve" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null.
+D:\Repositoris\ThreeInRow\Assets\Project\Sources\Gentleland\SteampunkUI\Scripts\ClockSlider.cs(10,15): warning CS0649: Полю "ClockSlider.minZRotation" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию 0.
+D:\Repositoris\ThreeInRow\Assets\Project\Scripts\HexCore\ChainReactionOfHex.cs(18,42): warning CS0649: Полю "ChainReactionOfHex._hexGrid" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null.
+D:\Repositoris\ThreeInRow\Assets\Project\Scripts\UI\TutorialPointer.cs(11,48): warning CS0649: Полю "TutorialPointer._handRect" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null.
+D:\Repositoris\ThreeInRow\Assets\Project\Scripts\UI\TimerView.cs(8,40): warning CS0649: Полю "TimerView._fillImage" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null.
+D:\Repositoris\ThreeInRow\Assets\Project\Scripts\HexCore\HexStack.cs(26,39): warning CS0649: Полю "HexStack._isTwoColors" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию false.
+D:\Repositoris\ThreeInRow\Assets\Project\Scripts\InputSystem\DragHandler.cs(16,46): warning CS0649: Полю "DragHandler._audioSource" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null.
+D:\Repositoris\ThreeInRow\Assets\Project\Sources\Gentleland\SteampunkUI\Scripts\KeyFieldUnSelect.cs(8,16): warning CS0649: Полю "KeyFieldUnSelect.selectable" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null.
+D:\Repositoris\ThreeInRow\Assets\Project\Scripts\Game\EntryPoint.cs(14,43): warning CS0649: Полю "EntryPoint._dragHexStackPrefab" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null.
+D:\Repositoris\ThreeInRow\Assets\Project\Scripts\HexCore\HexCell.cs(12,46): warning CS0649: Полю "HexCell._audioSource" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null.
+D:\Repositoris\ThreeInRow\Assets\Project\Scripts\UI\TutorialPointer.cs(13,45): warning CS0649: Полю "TutorialPointer._entryPoint" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null.
+D:\Repositoris\ThreeInRow\Assets\Project\Sources\Unity UI Samples\Scripts\ScrollDetailTexture.cs(11,12): warning CS0169: Поле "ScrollDetailTexture.m_Matrix" никогда не используется.
+D:\Repositoris\ThreeInRow\Assets\Project\Scripts\HexCore\Hex.cs(17,44): warning CS0649: Полю "Hex._moveClip" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null.
+D:\Repositoris\ThreeInRow\Assets\Project\Scripts\Game\EntryPoint.cs(16,42): warning CS0649: Полю "EntryPoint._endGame" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null.
+D:\Repositoris\ThreeInRow\Assets\Project\Scripts\HexCore\HexStack.cs(23,38): warning CS0649: Полю "HexStack._noRandomCount" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию 0.
+D:\Repositoris\ThreeInRow\Assets\Project\Scripts\Game\EntryPoint.cs(18,50): warning CS0649: Полю "EntryPoint._tutorialPointer" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null.
+D:\Repositoris\ThreeInRow\Assets\Project\Scripts\HexCore\HexCell.cs(10,47): warning CS0649: Полю "HexCell._meshRenderer" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null.
+D:\Repositoris\ThreeInRow\Assets\Project\Scripts\HexCore\HexCell.cs(8,43): warning CS0649: Полю "HexCell._highlightMaterial" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null.
+
+D:\Repositoris\ThreeInRow\Assets\Project\Scripts\HexCore\Hex.cs(18,44): warning CS0649: Полю "Hex._destroyClip" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null.
+D:\Repositoris\ThreeInRow\Assets\Project\Scripts\HexCore\HexCell.cs(13,44): warning CS0649: Полю "HexCell._destroyClip" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null.
+D:\Repositoris\ThreeInRow\Assets\Project\Scripts\Game\EntryPoint.cs(13,45): warning CS0649: Полю "EntryPoint._initialStacks" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null.
+D:\Repositoris\ThreeInRow\Assets\Project\Scripts\HexCore\HexCell.cs(11,49): warning CS0649: Полю "HexCell._effect" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null.
+D:\Repositoris\ThreeInRow\Assets\Project\Scripts\HexCore\HexStack.cs(16,40): warning CS0649: Полю "HexStack._possibleColors" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null.
+D:\Repositoris\ThreeInRow\Assets\Project\Scripts\HexCore\Hex.cs(16,46): warning CS0649: Полю "Hex._audioSource" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null.
+D:\Repositoris\ThreeInRow\Assets\Project\Scripts\HexCore\HexGrid.cs(16,42): warning CS0649: Полю "HexGrid._hexCellPrefab" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null.
+
+Usercode compiled successfully!
+.NET Core 3 runtime not found.
+.NET Core 3 runtime not found.
+code-v2:compose complete successfully!
+Authorized using stored user info.
+Версия MSBuild 17.14.40+3e7442088 для .NET Framework
+
+Сборка начата 13.05.2026 8:36:21.
+
+
+
+Проект "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj" в узле 1 (целевые объекты Rebuild).
+CoreClean:
+
+  Файл "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\bin\Debug\UnityScriptsCompiler.dll" удаляется.
+
+  Файл "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\bin\Debug\UnityScriptsCompiler.pdb" удаляется.
+
+  Файл "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\bin\Debug\Bridge.dll" удаляется.
+
+  Файл "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\bin\Debug\Bridge.Html5.dll" удаляется.
+
+  Файл "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\bin\Debug\Bridge.WebGL.dll" удаляется.
+
+  Файл "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\bin\Debug\DOTween.dll" удаляется.
+
+  Файл "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\bin\Debug\Newtonsoft.Json.dll" удаляется.
+
+  Файл "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\bin\Debug\Retyped.Core.dll" удаляется.
+
+  Файл "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\bin\Debug\Retyped.dom.dll" удаляется.
+
+  Файл "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\bin\Debug\Retyped.es5.dll" удаляется.
+
+  Файл "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\bin\Debug\Retyped.scripthost.dll" удаляется.
+
+  Файл "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\bin\Debug\UnityEngine.dll" удаляется.
+
+  Файл "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\bin\Debug\UnityEngine.UI.dll" удаляется.
+
+  Файл "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\bin\Debug\UnityEngine.UniversalRenderPipeline.dll" удаляется.
+
+  Файл "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\bin\Debug\Bridge.xml" удаляется.
+
+  Файл "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\bin\Debug\Bridge.Html5.xml" удаляется.
+
+  Файл "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\bin\Debug\Bridge.WebGL.xml" удаляется.
+
+  Файл "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\bin\Debug\Newtonsoft.Json.xml" удаляется.
+
+  Файл "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\bin\Debug\Retyped.Core.xml" удаляется.
+
+  Файл "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\bin\Debug\Retyped.dom.xml" удаляется.
+
+  Файл "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\bin\Debug\Retyped.es5.xml" удаляется.
+
+  Файл "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\bin\Debug\Retyped.scripthost.xml" удаляется.
+
+  Файл "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\obj\Debug\Scripts.csproj.AssemblyReference.cache" удаляется.
+
+  Файл "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\obj\Debug\Scripts.csproj.CoreCompileInputs.cache" удаляется.
+
+  Файл "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\obj\Debug\Scripts.csproj.Up2Date" удаляется.
+
+  Файл "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\obj\Debug\UnityScriptsCompiler.dll" удаляется.
+
+  Файл "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\obj\Debug\UnityScriptsCompiler.pdb" удаляется.
+
+GenerateTargetFrameworkMonikerAttribute:
+Целевой объект "GenerateTargetFrameworkMonikerAttribute" пропускается, так как все выходные файлы актуальны по отношению к входным.
+
+CoreCompile:
+  D:\VisualStudio\MSBuild\Current\Bin\Roslyn\csc.exe /noconfig /nowarn:CS0626,1701,1702 /fullpaths /nostdlib+ /errorreport:prompt /warn:4 /define:UNITY_LUNA;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_2022;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_2022_1_OR_NEWER;UNITY_2022_2_OR_NEWER;UNITY_2022_3_OR_NEWER;UNITY_2022_3;UNITY_2022_3_62 /highentropyva+ /reference:D:\LunaHexGame\pipeline\templates\LunaCompiler\packages\Bridge.Core.17.9.42-luna\lib\net40\Bridge.dll /reference:D:\LunaHexGame\pipeline\templates\LunaCompiler\packages\Bridge.Html5.17.9.0\lib\net40\Bridge.Html5.dll /reference:D:\LunaHexGame\pipeline\templates\LunaCompiler\packages\Bridge.WebGL.1.22.0\lib\net40\Bridge.WebGL.dll /reference:D:\LunaHexGame\pipeline\templates\LunaCompiler\packages\DOTween.1.2.705\lib\net40\DOTween.dll /reference:D:\LunaHexGame\pipeline\templates\LunaCompiler\packages\Bridge.Newtonsoft.Json.1.16.0\lib\net40\Newtonsoft.Json.dll /reference:D:\LunaHexGame\pipeline\templates\LunaCompiler\packages\Retyped.Core.1.6.6733\lib\net40\Retyped.Core.dll /reference:D:\LunaHexGame\pipeline\templates\LunaCompiler\packages\Retyped.dom.2.8.6733\lib\net40\Retyped.dom.dll /reference:D:\LunaHexGame\pipeline\templates\LunaCompiler\packages\Retyped.es5.2.8.6733\lib\net40\Retyped.es5.dll /reference:D:\LunaHexGame\pipeline\templates\LunaCompiler\packages\Retyped.scripthost.2.8.6733\lib\net40\Retyped.scripthost.dll /reference:D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Vendor\UnityEngine.dll /reference:D:\LunaHexGame\pipeline\templates\LunaCompiler\packages\com.unity.ui\1.2.1\UnityEngine.UI.dll /reference:D:\LunaHexGame\pipeline\templates\LunaCompiler\packages\com.unity.urp\7.6\UnityEngine.UniversalRenderPipeline.dll /debug+ /debug:full /optimize- /out:obj\Debug\UnityScriptsCompiler.dll /subsystemversion:6.00 /target:library /warnaserror- /utf8output /langversion:8 D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\ActiveStateToggler.cs D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\ApplicationManager.cs D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\ChangeColor.cs D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\DG\Tweening\DOTweenCYInstruction.cs D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\DG\Tweening\DOTweenModuleAudio.cs D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\DG\Tweening\DOTweenModulePhysics.cs D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\DG\Tweening\DOTweenModulePhysics2D.cs D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\DG\Tweening\DOTweenModuleSprite.cs D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\DG\Tweening\DOTweenModuleUI.cs D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\DG\Tweening\DOTweenModuleUnityVersion.cs D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\DG\Tweening\DOTweenModuleUtils.cs D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\DragMe.cs D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\DragPanel.cs D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\DropMe.cs D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Gentleland\StemapunkUI\DemoAndExample\BarsFillAnimations.cs D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Gentleland\StemapunkUI\DemoAndExample\CharacterStat.cs D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Gentleland\StemapunkUI\DemoAndExample\ClockSlider.cs D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Gentleland\StemapunkUI\DemoAndExample\CursorSelector.cs D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\KeyFieldUnSelect.cs D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\PanelManager.cs D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\Audio\Sounds\Sound.cs D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\Audio\Sounds\SoundsType.cs D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\Game\Constants\ColorEntry.cs D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\Game\Constants\ColorName.cs D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\Game\Constants\Colors.cs D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\Game\Constants\CustomPalette.cs D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\Game\EndGame.cs D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\Game\EntryPoint.cs D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\HexCore\ChainReactionOfHex.cs D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\HexCore\Hex.cs D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\HexCore\HexCell.cs D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\HexCore\HexGrid.cs D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\HexCore\HexStack.cs D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\InputSystem\DragHandler.cs D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\UI\TimerView.cs D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\UI\TutorialPointer.cs D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\UI\View.cs D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Properties\AssemblyInfo.cs D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\ResizePanel.cs D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\ScrollDetailTexture.cs D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\ShowSliderValue.cs D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\TiltWindow.cs "obj\Debug\.NETFramework,Version=v4.7.AssemblyAttributes.cs"
+
+D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\HexCore\HexCell.cs(21,23): warning CS0649: Полю "HexCell._audioSource" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+
+D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\Game\EntryPoint.cs(28,30): warning CS0649: Полю "EntryPoint._chainReactionOfHex" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\UI\TimerView.cs(9,17): warning CS0649: Полю "TimerView._fillImage" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\HexCore\ChainReactionOfHex.cs(22,26): warning CS0649: Полю "ChainReactionOfHex._moveCurve" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\HexCore\HexCell.cs(15,24): warning CS0649: Полю "HexCell._meshRenderer" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\HexCore\HexCell.cs(18,26): warning CS0649: Полю "HexCell._effect" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+
+D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\UI\TutorialPointer.cs(15,25): warning CS0649: Полю "TutorialPointer._handRect" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\HexCore\ChainReactionOfHex.cs(25,19): warning CS0649: Полю "ChainReactionOfHex._hexGrid" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+
+D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\Game\EndGame.cs(12,23): warning CS0649: Полю "EndGame._endGameCanvasGroup" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+
+D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\HexCore\HexStack.cs(34,16): warning CS0649: Полю "HexStack._isTwoColors" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию false. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+
+D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\ScrollDetailTexture.cs(11,20): warning CS0169: Поле "ScrollDetailTexture.m_Matrix" никогда не используется. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+
+D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\HexCore\HexCell.cs(12,20): warning CS0649: Полю "HexCell._defaultMaterial" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\HexCore\HexStack.cs(38,23): warning CS0649: Полю "HexStack._dragHandler" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+
+D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\InputSystem\DragHandler.cs(24,21): warning CS0649: Полю "DragHandler._pickupClip" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+
+D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Gentleland\StemapunkUI\DemoAndExample\ClockSlider.cs(8,17): warning CS0649: Полю "ClockSlider.minZRotation" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию 0. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+
+D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\HexCore\HexCell.cs(9,20): warning CS0649: Полю "HexCell._highlightMaterial" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\UI\TutorialPointer.cs(21,22): warning CS0649: Полю "TutorialPointer._entryPoint" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+
+D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\HexCore\Hex.cs(21,23): warning CS0649: Полю "Hex._audioSource" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+
+D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\KeyFieldUnSelect.cs(8,21): warning CS0649: Полю "KeyFieldUnSelect.selectable" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+
+D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\Game\EndGame.cs(18,27): warning CS0649: Полю "EndGame._tutorialPointer" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+
+D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\Game\EntryPoint.cs(25,19): warning CS0649: Полю "EntryPoint._endGame" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+
+D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\ScrollDetailTexture.cs(19,19): warning CS0169: Поле "ScrollDetailTexture.m_Mat" никогда не используется. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+
+D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\Game\EntryPoint.cs(41,21): warning CS0649: Полю "EntryPoint._timerView" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Gentleland\StemapunkUI\DemoAndExample\CursorSelector.cs(10,19): warning CS0649: Полю "CursorSelector.hotspot" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию . [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+
+D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\HexCore\HexCell.cs(24,21): warning CS0649: Полю "HexCell._destroyClip" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\Game\EntryPoint.cs(13,19): warning CS0649: Полю "EntryPoint._hexGrid" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\Game\EntryPoint.cs(19,20): warning CS0649: Полю "EntryPoint._dragHexStackPrefab" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+
+D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\Game\EndGame.cs(15,18): warning CS0649: Полю "EndGame._playNowButton" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\HexCore\HexGrid.cs(20,19): warning CS0649: Полю "HexGrid._hexCellPrefab" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\UI\TutorialPointer.cs(12,22): warning CS0649: Полю "TutorialPointer._handObject" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+
+D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\Game\EntryPoint.cs(16,22): warning CS0649: Полю "EntryPoint._initialStacks" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+
+D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\Game\EntryPoint.cs(22,23): warning CS0649: Полю "EntryPoint._dragHexStackSpawnPoints" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+
+D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\HexCore\Hex.cs(27,21): warning CS0649: Полю "Hex._destroyClip" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+
+D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\Game\Constants\CustomPalette.cs(9,24): warning CS0649: Полю "CustomPalette.colors" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+
+D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Gentleland\StemapunkUI\DemoAndExample\ClockSlider.cs(11,17): warning CS0649: Полю "ClockSlider.maxZRotation" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию 0. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+
+D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\Game\EntryPoint.cs(31,27): warning CS0649: Полю "EntryPoint._tutorialPointer" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+
+D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\HexCore\Hex.cs(24,21): warning CS0649: Полю "Hex._moveClip" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+
+D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\HexCore\HexStack.cs(17,17): warning CS0649: Полю "HexStack._possibleColors" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+
+D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\HexCore\HexStack.cs(30,15): warning CS0649: Полю "HexStack._noRandomCount" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию 0. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+
+D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\InputSystem\DragHandler.cs(21,23): warning CS0649: Полю "DragHandler._audioSource" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+
+D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\HexCore\Hex.cs(18,21): warning CS0649: Полю "Hex._hexColor" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию . [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+
+  CompilerServer: server - server processed compilation - Scripts
+
+_CopyFilesMarkedCopyLocal:
+  Копирование файла из "D:\LunaHexGame\pipeline\templates\LunaCompiler\packages\Bridge.WebGL.1.22.0\lib\net40\Bridge.WebGL.dll" в "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\bin\Debug\Bridge.WebGL.dll".
+
+  Копирование файла из "D:\LunaHexGame\pipeline\templates\LunaCompiler\packages\DOTween.1.2.705\lib\net40\DOTween.dll" в "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\bin\Debug\DOTween.dll".
+  Копирование файла из "D:\LunaHexGame\pipeline\templates\LunaCompiler\packages\Bridge.Html5.17.9.0\lib\net40\Bridge.Html5.dll" в "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\bin\Debug\Bridge.Html5.dll".
+  Копирование файла из "D:\LunaHexGame\pipeline\templates\LunaCompiler\packages\Bridge.Core.17.9.42-luna\lib\net40\Bridge.dll" в "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\bin\Debug\Bridge.dll".
+
+  Копирование файла из "D:\LunaHexGame\pipeline\templates\LunaCompiler\packages\Bridge.Newtonsoft.Json.1.16.0\lib\net40\Newtonsoft.Json.dll" в "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\bin\Debug\Newtonsoft.Json.dll".
+
+  Копирование файла из "D:\LunaHexGame\pipeline\templates\LunaCompiler\packages\Retyped.dom.2.8.6733\lib\net40\Retyped.dom.dll" в "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\bin\Debug\Retyped.dom.dll".
+
+  Копирование файла из "D:\LunaHexGame\pipeline\templates\LunaCompiler\packages\Retyped.Core.1.6.6733\lib\net40\Retyped.Core.dll" в "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\bin\Debug\Retyped.Core.dll".
+
+  Копирование файла из "D:\LunaHexGame\pipeline\templates\LunaCompiler\packages\Retyped.es5.2.8.6733\lib\net40\Retyped.es5.dll" в "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\bin\Debug\Retyped.es5.dll".
+
+  Копирование файла из "D:\LunaHexGame\pipeline\templates\LunaCompiler\packages\Retyped.scripthost.2.8.6733\lib\net40\Retyped.scripthost.dll" в "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\bin\Debug\Retyped.scripthost.dll".
+
+  Копирование файла из "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Vendor\UnityEngine.dll" в "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\bin\Debug\UnityEngine.dll".
+
+  Копирование файла из "D:\LunaHexGame\pipeline\templates\LunaCompiler\packages\com.unity.ui\1.2.1\UnityEngine.UI.dll" в "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\bin\Debug\UnityEngine.UI.dll".
+
+  Копирование файла из "D:\LunaHexGame\pipeline\templates\LunaCompiler\packages\com.unity.urp\7.6\UnityEngine.UniversalRenderPipeline.dll" в "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\bin\Debug\UnityEngine.UniversalRenderPipeline.dll".
+
+  Копирование файла из "D:\LunaHexGame\pipeline\templates\LunaCompiler\packages\Bridge.Core.17.9.42-luna\lib\net40\Bridge.xml" в "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\bin\Debug\Bridge.xml".
+
+  Копирование файла из "D:\LunaHexGame\pipeline\templates\LunaCompiler\packages\Bridge.Html5.17.9.0\lib\net40\Bridge.Html5.xml" в "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\bin\Debug\Bridge.Html5.xml".
+
+  Копирование файла из "D:\LunaHexGame\pipeline\templates\LunaCompiler\packages\Bridge.WebGL.1.22.0\lib\net40\Bridge.WebGL.xml" в "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\bin\Debug\Bridge.WebGL.xml".
+
+  Копирование файла из "D:\LunaHexGame\pipeline\templates\LunaCompiler\packages\Bridge.Newtonsoft.Json.1.16.0\lib\net40\Newtonsoft.Json.xml" в "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\bin\Debug\Newtonsoft.Json.xml".
+
+  Копирование файла из "D:\LunaHexGame\pipeline\templates\LunaCompiler\packages\Retyped.Core.1.6.6733\lib\net40\Retyped.Core.xml" в "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\bin\Debug\Retyped.Core.xml".
+
+  Копирование файла из "D:\LunaHexGame\pipeline\templates\LunaCompiler\packages\Retyped.dom.2.8.6733\lib\net40\Retyped.dom.xml" в "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\bin\Debug\Retyped.dom.xml".
+  Копирование файла из "D:\LunaHexGame\pipeline\templates\LunaCompiler\packages\Retyped.es5.2.8.6733\lib\net40\Retyped.es5.xml" в "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\bin\Debug\Retyped.es5.xml".
+
+  Копирование файла из "D:\LunaHexGame\pipeline\templates\LunaCompiler\packages\Retyped.scripthost.2.8.6733\lib\net40\Retyped.scripthost.xml" в "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\bin\Debug\Retyped.scripthost.xml".
+
+  Создание "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\obj\Debug\Scripts.csproj.Up2Date", так как было задано "AlwaysCreate".
+
+  Обращение к "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\obj\Debug\Scripts.csproj.Up2Date".
+
+CopyFilesToOutputDirectory:
+  Копирование файла из "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\obj\Debug\UnityScriptsCompiler.dll" в "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\bin\Debug\UnityScriptsCompiler.dll".
+
+  Scripts -> D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\bin\Debug\UnityScriptsCompiler.dll
+
+  Копирование файла из "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\obj\Debug\UnityScriptsCompiler.pdb" в "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\bin\Debug\UnityScriptsCompiler.pdb".
+
+BridgeNetCompilerTask:
+  Bridge started
+
+      To enable detailed logging, configure "logging" in bridge.json.
+      https://github.com/bridgedotnet/Bridge/wiki/global-configuration#logging
+
+  Bridge done
+
+Сборка проекта "D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj" завершена (целевые объекты Rebuild).
+
+
+Сборка успешно завершена.
+
+
+
+"D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj" (целевой объект Rebuild ) (1) ->
+(Целевой объект CoreCompile) -> 
+  D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\HexCore\HexCell.cs(21,23): warning CS0649: Полю "HexCell._audioSource" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+  D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\Game\EntryPoint.cs(28,30): warning CS0649: Полю "EntryPoint._chainReactionOfHex" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+  D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\UI\TimerView.cs(9,17): warning CS0649: Полю "TimerView._fillImage" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+  D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\HexCore\ChainReactionOfHex.cs(22,26): warning CS0649: Полю "ChainReactionOfHex._moveCurve" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+  D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\HexCore\HexCell.cs(15,24): warning CS0649: Полю "HexCell._meshRenderer" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+  D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\HexCore\HexCell.cs(18,26): warning CS0649: Полю "HexCell._effect" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+  D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\UI\TutorialPointer.cs(15,25): warning CS0649: Полю "TutorialPointer._handRect" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+  D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\HexCore\ChainReactionOfHex.cs(25,19): warning CS0649: Полю "ChainReactionOfHex._hexGrid" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+  D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\Game\EndGame.cs(12,23): warning CS0649: Полю "EndGame._endGameCanvasGroup" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+  D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\HexCore\HexStack.cs(34,16): warning CS0649: Полю "HexStack._isTwoColors" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию false. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+  D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\ScrollDetailTexture.cs(11,20): warning CS0169: Поле "ScrollDetailTexture.m_Matrix" никогда не используется. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+  D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\HexCore\HexCell.cs(12,20): warning CS0649: Полю "HexCell._defaultMaterial" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+  D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\HexCore\HexStack.cs(38,23): warning CS0649: Полю "HexStack._dragHandler" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+
+  D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\InputSystem\DragHandler.cs(24,21): warning CS0649: Полю "DragHandler._pickupClip" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+  D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Gentleland\StemapunkUI\DemoAndExample\ClockSlider.cs(8,17): warning CS0649: Полю "ClockSlider.minZRotation" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию 0. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+  D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\HexCore\HexCell.cs(9,20): warning CS0649: Полю "HexCell._highlightMaterial" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+  D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\UI\TutorialPointer.cs(21,22): warning CS0649: Полю "TutorialPointer._entryPoint" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+  D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\HexCore\Hex.cs(21,23): warning CS0649: Полю "Hex._audioSource" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+  D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\KeyFieldUnSelect.cs(8,21): warning CS0649: Полю "KeyFieldUnSelect.selectable" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+  D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\Game\EndGame.cs(18,27): warning CS0649: Полю "EndGame._tutorialPointer" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+  D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\Game\EntryPoint.cs(25,19): warning CS0649: Полю "EntryPoint._endGame" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+  D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\ScrollDetailTexture.cs(19,19): warning CS0169: Поле "ScrollDetailTexture.m_Mat" никогда не используется. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+  D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\Game\EntryPoint.cs(41,21): warning CS0649: Полю "EntryPoint._timerView" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+  D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Gentleland\StemapunkUI\DemoAndExample\CursorSelector.cs(10,19): warning CS0649: Полю "CursorSelector.hotspot" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию . [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+  D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\HexCore\HexCell.cs(24,21): warning CS0649: Полю "HexCell._destroyClip" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+  D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\Game\EntryPoint.cs(13,19): warning CS0649: Полю "EntryPoint._hexGrid" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+  D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\Game\EntryPoint.cs(19,20): warning CS0649: Полю "EntryPoint._dragHexStackPrefab" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+  D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\Game\EndGame.cs(15,18): warning CS0649: Полю "EndGame._playNowButton" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+  D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\HexCore\HexGrid.cs(20,19): warning CS0649: Полю "HexGrid._hexCellPrefab" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+  D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\UI\TutorialPointer.cs(12,22): warning CS0649: Полю "TutorialPointer._handObject" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+  D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\Game\EntryPoint.cs(16,22): warning CS0649: Полю "EntryPoint._initialStacks" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+  D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\Game\EntryPoint.cs(22,23): warning CS0649: Полю "EntryPoint._dragHexStackSpawnPoints" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+  D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\HexCore\Hex.cs(27,21): warning CS0649: Полю "Hex._destroyClip" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+  D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\Game\Constants\CustomPalette.cs(9,24): warning CS0649: Полю "CustomPalette.colors" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+  D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Gentleland\StemapunkUI\DemoAndExample\ClockSlider.cs(11,17): warning CS0649: Полю "ClockSlider.maxZRotation" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию 0. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+  D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\Game\EntryPoint.cs(31,27): warning CS0649: Полю "EntryPoint._tutorialPointer" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+  D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\HexCore\Hex.cs(24,21): warning CS0649: Полю "Hex._moveClip" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+  D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\HexCore\HexStack.cs(17,17): warning CS0649: Полю "HexStack._possibleColors" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+  D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\HexCore\HexStack.cs(30,15): warning CS0649: Полю "HexStack._noRandomCount" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию 0. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+  D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\InputSystem\DragHandler.cs(21,23): warning CS0649: Полю "DragHandler._audioSource" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию null. [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+  D:\Repositoris\ThreeInRow\LunaTemp\Assemblies\stage_2\decompiled\Project\Scripts\HexCore\Hex.cs(18,21): warning CS0649: Полю "Hex._hexColor" нигде не присваивается значение, поэтому оно всегда будет иметь значение по умолчанию . [D:\LunaHexGame\pipeline\templates\LunaCompiler\Scripts\Scripts.csproj]
+
+    Предупреждений: 41
+    Ошибок: 0
+
+
+Прошло времени 00:00:07.00
+
+Source code compiled successfully!
+﻿
+[ error ] $﻿
+Diagnostics gathered successfully
+[ Stage3 ] Code compiled and bundled successfully.
+[ Stage4 ] Target platform: playground
+[ Stage4 ] Package bundled successfully
+[ Stage4 ] Package uploaded successfully

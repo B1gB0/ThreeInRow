@@ -45,11 +45,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _possibleColors:
-  - {fileID: 8433595692222440639, guid: 813d632497806474eb0672d687dc4d8b, type: 3}
-  - {fileID: 8433595692222440639, guid: 6d7ec6d551f79094f893314593158f71, type: 3}
-  - {fileID: 8433595692222440639, guid: 99780b682f077b9418338ab48946ebdd, type: 3}
-  - {fileID: 8433595692222440639, guid: 786699533b9211640b36171feb5c9d60, type: 3}
-  - {fileID: 8433595692222440639, guid: 6273371d96ca740488d781dd420a3376, type: 3}
+  - {fileID: 6767636692889766360, guid: bdac58f556376a8498b46ee17df5c2d3, type: 3}
+  - {fileID: -7154743906378012024, guid: 63b7eebf9145c62428e17a58192cf86b, type: 3}
+  - {fileID: -546286468816646336, guid: 99d3596184fcd0149b4d88416d483804, type: 3}
+  - {fileID: 6641247266545914785, guid: a894ab1dbd8fdf64cb99b302c41dfe01, type: 3}
+  - {fileID: 6862996452910207175, guid: 875feb8ddc927de4a926e1795142b4d6, type: 3}
   _minHexagons: 6
   _maxHexagons: 10
   _isRandom: 1
